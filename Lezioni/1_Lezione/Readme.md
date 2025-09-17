@@ -988,6 +988,62 @@ Supponiamo di modellare un sistema di gestione corsi online:
 - **Oggetti annidati:** docente, lezioni
 - **Array di oggetti:** studenti, lezioni
 
+## **1. Metriche nei database**
+
+Le **metriche** sono valori numerici che descrivono lo stato o le prestazioni del database. Permettono di capire se il database sta funzionando correttamente e di identificare colli di bottiglia o anomalie.
+
+### **Esempi di metriche comuni**
+
+- **Tempo di risposta delle query**: quanto impiega una query a completarsi.
+- **Throughput**: numero di query eseguite al secondo.
+- **Utilizzo delle risorse**:
+
+  - CPU
+  - Memoria RAM
+  - I/O disco
+
+- **Connessioni attive**: quante connessioni al database sono aperte contemporaneamente.
+- **Lock e deadlock**: numero di blocchi di risorse che possono rallentare il sistema.
+- **Cache hit/miss**: percentuale di accessi ai dati che avvengono direttamente dalla cache vs dal disco.
+
+Le metriche vengono spesso raccolte automaticamente dagli **strumenti di monitoraggio del DB** (es. MySQL Performance Schema, PostgreSQL pg_stat_statements, SQL Server Performance Monitor).
+
+## **2. Log nei database**
+
+I **log** sono registrazioni dettagliate di eventi che avvengono nel database. Servono principalmente per **tracciare attività, risolvere problemi e garantire la sicurezza**.
+
+### **Tipi principali di log**
+
+1. **Log delle transazioni (Transaction Log)**
+
+   - Tiene traccia di tutte le modifiche ai dati.
+   - Essenziale per il **ripristino in caso di crash** e per garantire la **consistenza del database**.
+   - Esempio: SQL Server mantiene un transaction log per ogni database.
+
+2. **Log degli errori (Error Log)**
+
+   - Registra messaggi di errore e avvisi del database.
+   - Utile per diagnosticare problemi di configurazione o malfunzionamenti.
+
+3. **Log delle query (Query Log / General Log)**
+
+   - Registra tutte le query eseguite (o solo quelle lente).
+   - Utile per **ottimizzare le prestazioni** o per attività di auditing.
+
+4. **Audit log**
+
+   - Registra chi ha fatto cosa e quando.
+   - Fondamentale in contesti regolamentati o per sicurezza.
+
+### **Differenza tra metriche e log**
+
+| Aspetto       | Metriche                            | Log                                      |
+| ------------- | ----------------------------------- | ---------------------------------------- |
+| Cosa fornisce | Dati aggregati sulle prestazioni    | Dettagli evento per evento               |
+| Obiettivo     | Monitoraggio e ottimizzazione       | Diagnosi, sicurezza, ripristino          |
+| Frequenza     | Raccolta periodica o in tempo reale | Continuo, ogni evento                    |
+| Esempio       | Tempo medio query, CPU al 70%       | Query eseguita alle 10:05:32 da utente X |
+
 ## 🌐 Utilizzo Strumenti (AWS, Azure, GCP, ecc.)
 
 Quando si usano piattaforme cloud come **Amazon Web Services (AWS)**, **Microsoft Azure** o **Google Cloud Platform (GCP)**, è fondamentale **gestire bene i costi e le risorse**.
