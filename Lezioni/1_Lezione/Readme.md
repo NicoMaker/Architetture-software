@@ -553,6 +553,97 @@ Perfetto! Aggiorniamo il Markdown aggiungendo il **costo del trasporto**, sottol
 | Internet fibra       | 10 – 50 ms     | 100 Mbps – 1 Gbps | Mesh (ISP backbone) | Medio           |
 | Satellite (geost.)   | 500 – 600 ms   | 20 – 100 Mbps     | Star (hub-spoke)    | Alto            |
 
+Certo! Ti preparo una spiegazione chiara e completa in **Markdown** su **Teorema di CAP**, **ACID** e **BASE**, così puoi usarla direttamente per appunti o documentazione.
+
+## Teorema di CAP e Modelli di Database
+
+## Teorema di CAP
+
+Il **Teorema di CAP** afferma che un sistema distribuito può garantire al massimo **due delle tre proprietà** seguenti:
+
+1. **Consistency (Consistenza)**
+   Tutti i nodi vedono gli stessi dati nello stesso momento.
+
+   > Se leggi un dato da un nodo, ottieni sempre l’ultima versione aggiornata.
+
+2. **Availability (Disponibilità)**
+   Ogni richiesta riceve una risposta, anche se alcuni nodi sono offline.
+
+   > Il sistema è sempre operativo, ma il dato potrebbe non essere l’ultimo aggiornato.
+
+3. **Partition Tolerance (Tolleranza alle partizioni)**
+   Il sistema continua a funzionare anche se alcune comunicazioni tra nodi falliscono (cioè c’è una “partizione” della rete).
+
+   > Una partizione è una situazione in cui una parte del sistema non può comunicare con l’altra.
+
+**Nota:**
+
+- In pratica, in un sistema distribuito devi scegliere tra **Consistency + Availability**, **Consistency + Partition Tolerance**, o **Availability + Partition Tolerance**.
+- Non è possibile avere tutte e tre contemporaneamente in caso di guasto della rete.
+
+## Commit (nei database)
+
+Un **commit** è l’operazione con cui una transazione viene confermata nel database:
+
+- Tutte le modifiche della transazione diventano permanenti.
+- Garantisce **Atomicity** e **Durability** nel modello ACID.
+- Se la transazione fallisce prima del commit, tutte le modifiche vengono annullate (**rollback**).
+
+> In pratica, il commit è il “punto di non ritorno” della transazione.
+
+## Ritardo nel db 
+
+Un **ritardo nel database** indica il tempo che un dato impiega per arrivare dal mittente al destinatario.
+
+> In pratica, il ritardo nel database indica il tempo che un dato impiega per arrivare dal mittente al destinatario e in base a dove si trova e posizione del mittente e diversi db collegati tra di loro.
+
+## ACID vs BASE
+
+I **database tradizionali** (come SQL) seguono il modello **ACID**, mentre i database distribuiti NoSQL spesso seguono il modello **BASE**.
+
+### ACID (Database Tradizionali)
+
+ACID garantisce **transazioni sicure e affidabili**:
+
+1. **Atomicity (Atomicità)**
+
+   - Una transazione è “tutto o niente”.
+   - Se fallisce, il sistema torna allo stato precedente.
+
+2. **Consistency (Consistenza)**
+
+   - Le transazioni portano il database da uno stato valido a un altro stato valido.
+   - Le regole del database non vengono mai violate.
+
+3. **Isolation (Isolamento)**
+
+   - Le transazioni concorrenti non interferiscono tra loro.
+   - I risultati sono equivalenti a eseguire le transazioni una alla volta.
+
+4. **Durability (Durabilità)**
+
+   - Una volta confermata, la transazione non può andare persa, anche in caso di crash.
+
+### BASE (Database NoSQL / distribuiti)
+
+BASE è più flessibile e scalabile, adatto ai sistemi distribuiti:
+
+1. **Basically Available (Fondamentalmente Disponibile)**
+
+   - Il sistema garantisce risposte a tutte le richieste, anche se non tutte sono aggiornate.
+
+2. **Soft state (Stato morbido)**
+
+   - Lo stato del database può cambiare nel tempo, anche senza nuove scritture.
+   - Non garantisce la consistenza immediata dei dati tra i nodi.
+
+3. **Eventual consistency (Consistenza eventuale)**
+
+   - Alla fine, tutti i nodi raggiungeranno lo stesso stato.
+   - La consistenza è ritardata, ma si verifica **eventualmente**.
+
+**Nota:** BASE sacrifica la consistenza immediata per **alta disponibilità e scalabilità**.
+
 ## 🌐 Utilizzo Strumenti (AWS, Azure, GCP, ecc.)
 
 Quando si usano piattaforme cloud come **Amazon Web Services (AWS)**, **Microsoft Azure** o **Google Cloud Platform (GCP)**, è fondamentale **gestire bene i costi e le risorse**.
