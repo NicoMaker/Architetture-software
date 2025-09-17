@@ -1177,6 +1177,22 @@ fare codice programmare in modo sicuro
 - quante volte sito giù
 - messaggio di errore per scritte
 
+## Unique test
+
+verifico dati su singoli funzioni -> sapere cosa non fa e saper gestire i dati dove non vanno 
+
+## Integration test
+
+Tante unità e vedo se si uniscono tra di loro 
+
+## Contract test
+
+le chiamate api deve funzionare in modo corretto
+
+## End to end test
+
+verifico tutto il sito -> in modo corretto 
+
 ## 🌐 Utilizzo Strumenti (AWS, Azure, GCP, ecc.)
 
 Quando si usano piattaforme cloud come **Amazon Web Services (AWS)**, **Microsoft Azure** o **Google Cloud Platform (GCP)**, è fondamentale **gestire bene i costi e le risorse**.
