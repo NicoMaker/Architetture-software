@@ -247,7 +247,9 @@ Ecco perché:
    Possono fornire versioni **minificate** di CSS e JS, eliminando spazi e caratteri inutili, così che il browser scarichi meno dati.
 
 
-CDN -> crei da server -> ma senza header e cookie -> tempo di cache alto 
+CDN -> crei da server -> ma senza header e cookie -> tempo di cache alto -> peschi CDN più veloce a lui e server più veloce degli altri 
+
+CDN -> calcoli con lapda -> più veloce a utente finale -> distribuito su tutto e fornisce header -> maantenere dati cache browser -> non scarichi ma solo dati nuovi 
 
 
 ## Applicazione Robusta
