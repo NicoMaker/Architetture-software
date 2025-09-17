@@ -791,7 +791,60 @@ La **scalabilità** indica quanto il software può **gestire un aumento di caric
 💡 **In sintesi:**
 Ogni fase è collegata e costruisce un software solido, sicuro, flessibile e pronto a crescere: separazione + robustezza + configurazione → build → release → esecuzione → scalabilità.
 
+## Avvio e Gestione dell’Applicazione
 
+1. **Configurazione**
+
+   - L’app legge parametri esterni (file `.env`, `.json`, variabili d’ambiente).
+   - Include database, API key, modalità ambiente (sviluppo/test/produzione).
+
+2. **Build**
+
+   - Preparazione del software per l’esecuzione.
+   - Include compilazione/minificazione, dipendenze e configurazione per l’ambiente.
+
+3. **Release**
+
+   - Distribuzione della versione stabile agli utenti o all’ambiente di produzione.
+   - Include gestione versioni, pacchetti o container.
+
+4. **Esecuzione**
+
+   - L’app viene avviata e utilizza configurazioni e moduli attivi.
+   - Connessione a database e servizi esterni, gestione errori in runtime.
+
+5. **Scalabilità**
+
+   - L’app può crescere con il carico senza degradare le prestazioni.
+   - Verticale (più risorse hardware) o orizzontale (più istanze / microservizi).
+
+💡 **In sintesi:**
+Per avviare un’app moderna serve **configurazione → build → release → esecuzione → scalabilità**.
+Queste fasi garantiscono che l’app sia pronta, funzionante, stabile e capace di crescere.
+
+Ecco una definizione chiara e precisa per entrambi i concetti:
+
+### **Ambiente di Produzione**
+
+L’**ambiente di produzione** (production environment) è il contesto reale in cui un software viene **utilizzato dagli utenti finali**.
+
+- Contiene dati veri e funzionalità complete.
+- Deve essere **stabile, sicuro e performante**.
+- Tutte le modifiche vengono testate prima di essere rilasciate qui, per evitare interruzioni o errori.
+- Esempio: un sito web di e-commerce attivo con clienti reali.
+
+### **Scalabilità**
+
+La **scalabilità** è la capacità di un software o sistema di **gestire un aumento del carico** senza degradare le prestazioni.
+
+- **Scalabilità verticale:** aumentare le risorse di un singolo server (CPU, RAM, storage).
+- **Scalabilità orizzontale:** aggiungere più istanze o server per distribuire il carico (cluster, microservizi).
+- Obiettivo: garantire che il software continui a funzionare bene anche con molti utenti o grandi quantità di dati.
+
+💡 In sintesi:
+
+- **Ambiente di produzione = dove il software funziona realmente per gli utenti.**
+- **Scalabilità = capacità del software di crescere con il carico senza problemi.**
 
 ## 🌐 Utilizzo Strumenti (AWS, Azure, GCP, ecc.)
 
