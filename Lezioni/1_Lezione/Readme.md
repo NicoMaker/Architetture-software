@@ -269,23 +269,50 @@ CDN -> calcoli con lapda -> più veloce a utente finale -> distribuito su tutto 
 - **Aggiornamenti rapidi e indipendenti**
   → si possono fare release più veloci senza bloccare tutto.
 
-- **Capacità di scalling** 
+- **Capacità di scalling**
   → si possono aggiungere server in base alle necessità, aggiungi macchine o togli server in base alle necessità.
 
 - **Monitoraggio dati**
   → si possono monitorare in tempo reale le risorse e le prestazioni -> e capire quanto usi e costi.
 
-
 ### **Applicazione Robusta**
 
 Un’applicazione si definisce **robusta** quando è **affidabile, resistente agli errori e capace di funzionare correttamente anche in condizioni impreviste o avverse**.
 
+Perfetto 💡, ti preparo una spiegazione chiara con i tuoi punti e un po’ di ordine:
+
+## 🌐 Utilizzo Strumenti (AWS, Azure, GCP, ecc.)
+
+Quando si usano piattaforme cloud come **Amazon Web Services (AWS)**, **Microsoft Azure** o **Google Cloud Platform (GCP)**, è fondamentale **gestire bene i costi e le risorse**.
+
+### 🔑 Buone pratiche:
+
+- **Porsi dei limiti di prezzo**
+
+  - Impostare un _budget mensile_ e usare gli strumenti di monitoraggio dei costi integrati (es. AWS Budgets, Azure Cost Management, GCP Billing).
+  - Ricevere _alert_ se si supera una certa soglia di spesa.
+
+- **Limitare le risorse delle macchine**
+
+  - Quando crei una macchina virtuale o un servizio, puoi definire i **limiti di CPU, RAM e storage**.
+  - In questo modo eviti di consumare troppo e far crescere i costi senza controllo.
+
+- **Autoscaling controllato**
+
+  - Attivare lo _scaling automatico_, ma con soglie massime: così l’app cresce solo fino a un certo punto e non oltre.
+
+- **Spegnere risorse non usate**
+
+  - Se una macchina virtuale non serve 24/7, meglio spegnerla o usare servizi _serverless_ che paghi solo quando li usi.
+
+- **Monitoraggio costante**
+
+  - Tenere d’occhio dashboard e report per capire dove stai spendendo di più e se puoi ottimizzare.
 
 ### 🔑 Caratteristiche principali:
 
-* **Tolleranza agli errori** → non si blocca se qualcosa va storto, ma gestisce le eccezioni in modo controllato.
-* **Stabilità** → continua a funzionare anche sotto carico elevato o con risorse limitate.
-* **Resilienza** → si riprende velocemente dopo un malfunzionamento o un guasto.
-* **Affidabilità** → garantisce risultati consistenti e corretti nel tempo.
-* **Sicurezza** → protegge i dati e previene comportamenti indesiderati anche in caso di input errati o attacchi.
-
+- **Tolleranza agli errori** → non si blocca se qualcosa va storto, ma gestisce le eccezioni in modo controllato.
+- **Stabilità** → continua a funzionare anche sotto carico elevato o con risorse limitate.
+- **Resilienza** → si riprende velocemente dopo un malfunzionamento o un guasto.
+- **Affidabilità** → garantisce risultati consistenti e corretti nel tempo.
+- **Sicurezza** → protegge i dati e previene comportamenti indesiderati anche in caso di input errati o attacchi.
