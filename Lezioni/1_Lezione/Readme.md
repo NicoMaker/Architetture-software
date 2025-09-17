@@ -109,6 +109,8 @@ Sequenza di informazioni -> che ognuno ha la sua funzione specifica -> che comun
 - **Affidabilità** → se un microservizio cade, il resto del sistema continua a funzionare.
 - **Team specializzati** → ogni team può lavorare su un microservizio diverso (es. un team su “notifiche”, un altro su “autenticazione”).
 
+- Più team -> più servizi -> più costi e più strumenti e attività
+
 ## 🔹 Esempio pratico
 
 Immagina un sito di e-commerce:
