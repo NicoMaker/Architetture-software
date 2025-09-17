@@ -1090,6 +1090,75 @@ Il **serverless** è un modello di **computing nel cloud** dove lo sviluppatore 
 - Possibili ritardi iniziali (“cold start”).
 - Dipendenza dal provider cloud.
 
+
+## **1. Microservizi (backend)**
+
+I **microservizi** sono un approccio architetturale per costruire applicazioni **backend** suddividendole in servizi piccoli, indipendenti e autonomi. Ogni microservizio:
+
+* Ha una **singola responsabilità** (ad esempio, gestione utenti, ordini, pagamenti).
+* Può essere sviluppato, distribuito e scalato **indipendentemente** dagli altri.
+* Comunica con altri servizi tramite API (tipicamente REST o gRPC).
+* Ha il proprio database o storage, evitando dipendenze condivise e riducendo i colli di bottiglia.
+
+**Vantaggi dei microservizi:**
+
+* Scalabilità: puoi scalare solo il servizio che serve più risorse.
+* Manutenibilità: il codice è più semplice perché ogni servizio è piccolo.
+* Deployment indipendente: puoi aggiornare un servizio senza interrompere l’intera applicazione.
+
+**Esempio:**
+Un e-commerce può avere microservizi separati per:
+
+* Catalogo prodotti
+* Gestione ordini
+* Pagamenti
+* Notifiche
+
+
+## **2. Microfrontend (frontend)**
+
+I **microfrontend** applicano lo stesso concetto dei microservizi ma al **frontend**. Invece di avere un’applicazione frontend monolitica, la suddividi in **moduli autonomi**. Ogni team può sviluppare, testare e distribuire il proprio microfrontend senza interferire con gli altri.
+
+**Caratteristiche principali:**
+
+* Ogni microfrontend gestisce una **parte specifica dell’interfaccia** (ad esempio header, carrello, dashboard utenti).
+* Possono essere sviluppati in **framework diversi** (React, Angular, Vue) purché siano integrati correttamente.
+* La composizione avviene spesso a runtime, cioè l’host frontend carica i microfrontend tramite **web components**, **iframe**, o **JavaScript bundles**.
+* Mantiene **indipendenza e deploy separato**, simile ai microservizi.
+
+**Vantaggi dei microfrontend:**
+
+* Team indipendenti: ogni team può lavorare su una parte dell’app senza conflitti.
+* Aggiornamenti separati: puoi aggiornare un microfrontend senza rilasciare tutto il sito.
+* Tecnologia flessibile: ogni microfrontend può usare librerie/framework diversi se necessario.
+
+**Esempio:**
+Un sito di e-commerce può avere microfrontend per:
+
+* Navbar e ricerca prodotti
+* Lista prodotti
+* Carrello
+* Checkout
+* Area utenti
+
+Ogni microfrontend può essere sviluppato e deployato separatamente, ma all’utente sembra un’unica applicazione fluida.
+
+## **3. Differenza chiave**
+
+| Aspetto       | Microservizi (backend)             | Microfrontend (frontend)             |
+| ------------- | ---------------------------------- | ------------------------------------ |
+| Livello       | Backend                            | Frontend                             |
+| Scopo         | Suddividere logica di business     | Suddividere interfaccia utente       |
+| Indipendenza  | Servizi autonomi e deploy separato | Moduli UI autonomi e deploy separato |
+| Comunicazione | API REST, gRPC                     | JS bundle, web components, iframe    |
+| Team          | Sviluppatori backend               | Sviluppatori frontend                |
+
+
+💡 **Sintesi:**
+I microservizi rendono il **backend** modulare e scalabile, mentre i microfrontend rendono il **frontend** modulare e indipendente. L’idea comune è la stessa: **dividere per responsabilità e autonomia**, ma applicata a due livelli diversi.
+
+
+
 ## 🌐 Utilizzo Strumenti (AWS, Azure, GCP, ecc.)
 
 Quando si usano piattaforme cloud come **Amazon Web Services (AWS)**, **Microsoft Azure** o **Google Cloud Platform (GCP)**, è fondamentale **gestire bene i costi e le risorse**.
