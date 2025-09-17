@@ -16,3 +16,5 @@ Attraverso API -> legge come JSON
 COndivido con team -> come sviluppare un software 
 
 Capire come fare per lavorare con il team come concetton un backend e con il frontend
+
+Frontend -> layout non APPI -> frontend gestisce grafica 
