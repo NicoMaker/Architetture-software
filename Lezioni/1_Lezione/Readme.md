@@ -1205,6 +1205,12 @@ Definsico limite massimo di errore con il cliente (monitoraggio) -> su infrastru
 
 funzionalità di monitoraggio a tutto il team
 
+## Architettura db
+
+- condivisi 
+- ogni singolo db per ogni cosa 
+- db sincronizzato 
+
 ## 🌐 Utilizzo Strumenti (AWS, Azure, GCP, ecc.)
 
 Quando si usano piattaforme cloud come **Amazon Web Services (AWS)**, **Microsoft Azure** o **Google Cloud Platform (GCP)**, è fondamentale **gestire bene i costi e le risorse**.
