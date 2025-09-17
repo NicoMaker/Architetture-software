@@ -305,6 +305,46 @@ I microservizi possono comunicare principalmente in due modi: **code/eventi** o 
 | Code/eventi  | Operazioni asincrone, batch | Non blocca, resiliente, gestione ritardi | Configurazione più complessa          |
 | Sessioni/API | Operazioni immediate        | Semplice, risposta diretta               | Bloccante se il servizio non risponde |
 
+## 🔐 Autenticazione e logout
+
+I microservizi e le applicazioni web richiedono **autenticazione** per garantire accesso sicuro e **logout** per proteggere le sessioni.
+
+### **1. Autenticazione con password**
+
+* **Funzionamento:** l’utente inserisce **username e password** per accedere.
+* **Gestione sicurezza:** le password devono essere **hashate e salate** per evitare furti.
+* **Sessione:** l’accesso viene gestito tramite **sessioni** o **token**.
+* **Logout:** chiude la sessione, impedendo accessi non autorizzati.
+* **Pro:** semplice da implementare, comune.
+* **Contro:** vulnerabile a furto di password o attacchi phishing.
+
+
+### **2. Autenticazione con chiavette o app dedicate**
+
+* **Funzionamento:** si usa un **dispositivo fisico** (chiavetta USB tipo YubiKey) o un’**app di autenticazione** (OTP, QR code).
+* **2FA:** spesso combinata con la password (**autenticazione a due fattori**) per maggiore sicurezza.
+* **Sessione:** l’accesso richiede il dispositivo/app; logout funziona come per le password.
+* **Pro:** molto sicuro, protegge anche se la password viene rubata.
+* **Contro:** più complesso da gestire, serve un dispositivo aggiuntivo.
+
+
+### 🔑 Differenze principali tra i due metodi
+
+| Caratteristica               | Password         | Chiavetta/App (2FA)                                         |
+| ---------------------------- | ---------------- | ----------------------------------------------------------- |
+| Tipo di autenticazione       | Solo credenziali | Credenziali + dispositivo/app                               |
+| Sicurezza                    | Base             | Alta                                                        |
+| Complessità gestione         | Bassa            | Alta                                                        |
+| Protezione da furto password | No               | Sì                                                          |
+| Logout                       | Chiude sessione  | Chiude sessione, richiede nuovo accesso con dispositivo/app |
+
+
+### ✅ Sintesi
+
+* **Password:** semplice ma meno sicura.
+* **Chiavette/App:** più sicura, richiede dispositivo aggiuntivo, ideale per dati sensibili.
+* **Logout:** fondamentale in entrambi i casi per proteggere la sessione.
+
 
 ## 🌐 Utilizzo Strumenti (AWS, Azure, GCP, ecc.)
 
