@@ -269,4 +269,7 @@ CDN -> calcoli con lapda -> più veloce a utente finale -> distribuito su tutto 
 - **Aggiornamenti rapidi e indipendenti**
   → si possono fare release più veloci senza bloccare tutto.
 
+- **Capacità di scalling** 
+  → si possono aggiungere server in base alle necessità, aggiungi macchine o togli server in base alle necessità.
+
 ## Applicazione Robusta
