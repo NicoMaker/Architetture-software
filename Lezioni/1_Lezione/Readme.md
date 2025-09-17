@@ -277,10 +277,34 @@ CDN -> calcoli con lapda -> più veloce a utente finale -> distribuito su tutto 
 - **Monitoraggio dati**
   → si possono monitorare in tempo reale le risorse e le prestazioni -> e capire quanto usi e costi.
 
+## 🔗 Come comunicare con i microservizi
 
-## Come comunicare con microservizi?
+I microservizi possono comunicare principalmente in due modi: **code/eventi** o **sessioni/sincrono**.
 
-Attraverso le code -> software che gestisci eventi -> microservizio riceve messaggio in base a che opzioni serve -> microservizio invia risposta -> operazioni asincrone -> servizio non c'è e non so quando pronto messaggio che va opzioni contaria e dice quando ha mandato o fatto
+### **1. Comunicazione tramite code (asincrona)**
+
+- Un microservizio invia un **messaggio** a una coda (es. RabbitMQ, Kafka).
+- Il microservizio destinatario **riceve il messaggio** e lo elabora in base alle opzioni richieste.
+- **Operazioni asincrone**: il mittente non deve aspettare che il destinatario finisca subito.
+- **Gestione dei tempi**: se il servizio non è disponibile, il messaggio resta nella coda fino a elaborazione.
+- **Configurazione necessaria**: devi impostare e gestire l’ambiente di messaggistica.
+
+### **2. Comunicazione tramite sessioni (sincrona)**
+
+- Il microservizio mittente **invoca direttamente** il servizio destinatario tramite API (es. REST, gRPC).
+- Il mittente **aspetta la risposta** (operazione sincrona).
+- Adatto per operazioni **immediate** o quando serve una conferma rapida.
+- **Svantaggio**: se il destinatario è lento o non disponibile, il mittente rimane bloccato.
+
+* **Sessioni**: implementatate e gestite
+
+### 🔑 Sintesi dei vantaggi/uso:
+
+| Tipo         | Quando usarlo               | Pro                                      | Contro                                |
+| ------------ | --------------------------- | ---------------------------------------- | ------------------------------------- |
+| Code/eventi  | Operazioni asincrone, batch | Non blocca, resiliente, gestione ritardi | Configurazione più complessa          |
+| Sessioni/API | Operazioni immediate        | Semplice, risposta diretta               | Bloccante se il servizio non risponde |
+
 
 ## 🌐 Utilizzo Strumenti (AWS, Azure, GCP, ecc.)
 
