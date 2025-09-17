@@ -483,6 +483,52 @@ I **message broker** sono sistemi intermediari che gestiscono lo scambio di mess
 - RabbitMQ è ottimo per **messaggi tradizionali e code affidabili**.
 - Kafka è più adatto per **grandi volumi di dati e streaming**.
 
+## Rete: Affidabilità, Latenza e Banda
+
+## 1. Affidabilità della rete
+
+- Nessuna rete è completamente affidabile.
+- Possibili problemi:
+
+  - perdita di pacchetti
+  - errori di trasmissione
+  - interruzioni temporanee
+
+- I protocolli come **TCP** cercano di compensare questi problemi, ma la rete resta intrinsecamente **non perfetta**.
+
+## 2. Latenza
+
+- La **latenza** è il tempo che un pacchetto impiega per arrivare da mittente a destinatario.
+- Dipende da:
+
+  - distanza fisica
+  - numero di router/switch attraversati
+  - congestione della rete
+  - tipo di trasmissione (fibra, rame, wireless, satellite)
+
+- Anche nelle reti più veloci, la latenza **non può essere zero**.
+
+  - Es.: propagazione della luce nella fibra ottica ≈ 5 ns per metro.
+
+## 3. Banda
+
+- La **banda** indica la quantità massima di dati trasmissibili in un intervallo di tempo.
+- Nessuna rete ha **banda infinita**: è sempre limitata.
+- Dipende da:
+
+  - tecnologia della rete (fibra, rame, wireless, satellite)
+  - congestione e traffico
+  - qualità dell’infrastruttura
+
+## 4. Valori tipici di latenza e banda
+
+| Tipo di rete         | Latenza tipica | Banda tipica      |
+| -------------------- | -------------- | ----------------- |
+| LAN (fibra/ethernet) | 0.1 – 1 ms     | 1 – 10 Gbps       |
+| Wi-Fi domestico      | 1 – 10 ms      | 100 Mbps – 1 Gbps |
+| Internet fibra       | 10 – 50 ms     | 100 Mbps – 1 Gbps |
+| Satellite (geost.)   | 500 – 600 ms   | 20 – 100 Mbps     |
+
 ## 🌐 Utilizzo Strumenti (AWS, Azure, GCP, ecc.)
 
 Quando si usano piattaforme cloud come **Amazon Web Services (AWS)**, **Microsoft Azure** o **Google Cloud Platform (GCP)**, è fondamentale **gestire bene i costi e le risorse**.
