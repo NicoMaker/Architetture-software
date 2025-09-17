@@ -41,7 +41,6 @@ In altre parole, se oggi il tuo sito gestisce 100 utenti contemporanei e domani 
    - Aggiungi più server che lavorano insieme (cluster, cloud, container).
    - Puoi gestire teoricamente utenti infiniti, distribuendo il carico.
 
-
 ## 🔹 Aggiornamento in tempo reale
 
 Per avere un sistema che si aggiorna **in tempo reale** (es. chat, dashboard dati, notifiche live), si usano tecnologie come:
@@ -385,7 +384,6 @@ I microservizi e le applicazioni web richiedono **autenticazione** per garantire
 | 🛡️ **Resilienza** – Un servizio che fallisce non blocca tutto.                                     | 📊 **Monitoraggio e distribuzione** – Serve infrastruttura avanzata per gestire i servizi.    |
 | 👥 **Team autonomi** – Squadre diverse possono lavorare indipendentemente.                         | 💰 **Costi infrastrutturali maggiori** – Più servizi richiedono più risorse e server.         |
 
-
 ## **OAuth (Open Authorization)**
 
 **Definizione:**
@@ -400,6 +398,66 @@ OAuth è un **protocollo di autorizzazione** che permette a un’app di accedere
 **Esempio pratico:**
 
 - “Accedi con Google” → il sito riceve un token, legge solo le informazioni consentite (es. email, nome), e tu non dai la tua password al sito.
+
+## Architettura dei Servizi Distribuiti
+
+## Coordinamento dei servizi
+
+Il coordinamento dei servizi garantisce che i componenti di un sistema distribuito possano comunicare in modo efficiente e resiliente.
+
+### Service Discovery
+
+- I servizi si trovano a vicenda automaticamente, senza configurazioni manuali.
+- Favorisce scalabilità e gestione dinamica dei servizi.
+
+### Circuit Breakers
+
+- Interrompe le chiamate verso un servizio non disponibile o in errore.
+- Previene l’effetto a catena e aumenta la resilienza del sistema.
+
+### Retry Patterns
+
+- Ripete automaticamente le richieste fallite.
+- Spesso implementato con ritardi progressivi (_exponential backoff_).
+
+### Timeout Strategies
+
+- Definisce un tempo massimo di attesa per una risposta.
+- Evita blocchi e rallentamenti del sistema.
+
+## Scambio di messaggi
+
+Permette ai servizi di comunicare tra loro, in modalità **sincrona** o **asincrona**.
+
+### Sincrono
+
+- La richiesta del client attende la risposta del server.
+- Tipico delle API REST.
+
+### Asincrono
+
+- La comunicazione non richiede una risposta immediata.
+- I messaggi vengono elaborati in background, migliorando il decoupling e la resilienza.
+
+### REST APIs
+
+- Interfacce HTTP standard (GET, POST, PUT, DELETE) per scambiare dati.
+- Vantaggi: semplicità e compatibilità.
+- Svantaggi: più chiamate necessarie per dati correlati.
+
+### GraphQL
+
+- Linguaggio di query per API che permette di richiedere **solo i dati necessari**.
+- Riduce sovraccarichi e chiamate multiple.
+- Ideale per sistemi complessi con entità correlate.
+
+### Message Brokers
+
+- Sistemi intermediari per la gestione dei messaggi tra servizi.
+- Garantisce **affidabilità, buffering e decoupling**.
+- Esempi:
+  - **RabbitMQ**: code di messaggi, routing complesso e conferma di ricezione.
+  - **Kafka**: stream di dati ad alto throughput, ideale per elaborazioni in tempo reale.
 
 ## 🌐 Utilizzo Strumenti (AWS, Azure, GCP, ecc.)
 
