@@ -483,7 +483,9 @@ I **message broker** sono sistemi intermediari che gestiscono lo scambio di mess
 - RabbitMQ è ottimo per **messaggi tradizionali e code affidabili**.
 - Kafka è più adatto per **grandi volumi di dati e streaming**.
 
-## Rete: Affidabilità, Latenza e Banda
+Perfetto! Aggiorniamo il Markdown aggiungendo il **costo del trasporto**, sottolineando che **non è mai zero**:
+
+## Rete: Affidabilità, Latenza, Banda, Topologia e Costo
 
 ## 1. Affidabilità della rete
 
@@ -520,14 +522,36 @@ I **message broker** sono sistemi intermediari che gestiscono lo scambio di mess
   - congestione e traffico
   - qualità dell’infrastruttura
 
-## 4. Valori tipici di latenza e banda
+## 4. Topologia della rete
 
-| Tipo di rete         | Latenza tipica | Banda tipica      |
-| -------------------- | -------------- | ----------------- |
-| LAN (fibra/ethernet) | 0.1 – 1 ms     | 1 – 10 Gbps       |
-| Wi-Fi domestico      | 1 – 10 ms      | 100 Mbps – 1 Gbps |
-| Internet fibra       | 10 – 50 ms     | 100 Mbps – 1 Gbps |
-| Satellite (geost.)   | 500 – 600 ms   | 20 – 100 Mbps     |
+- La **topologia** descrive la disposizione dei nodi e dei collegamenti nella rete.
+- Tipi principali:
+
+  - **Bus**: tutti i nodi collegati a un unico cavo principale.
+  - **Star**: tutti i nodi collegati a un nodo centrale (switch/router).
+  - **Ring**: ogni nodo collegato a due nodi vicini formando un anello.
+  - **Mesh**: ogni nodo può collegarsi a più nodi, aumentando affidabilità.
+  - **Hybrid**: combinazione di più topologie.
+
+## 5. Costo del trasporto
+
+- Trasmettere dati ha sempre un **costo**.
+- Nessuna rete ha costo zero: include manutenzione, energia, infrastruttura e hardware.
+- Dipende da:
+
+  - tipo di rete (fibra, rame, satellite)
+  - distanza
+  - quantità di dati trasmessi
+  - provider e tecnologia utilizzata
+
+## 6. Valori tipici di latenza, banda, topologia e costo
+
+| Tipo di rete         | Latenza tipica | Banda tipica      | Topologia comune    | Costo trasporto |
+| -------------------- | -------------- | ----------------- | ------------------- | --------------- |
+| LAN (fibra/ethernet) | 0.1 – 1 ms     | 1 – 10 Gbps       | Star, Mesh          | Basso           |
+| Wi-Fi domestico      | 1 – 10 ms      | 100 Mbps – 1 Gbps | Star                | Molto basso     |
+| Internet fibra       | 10 – 50 ms     | 100 Mbps – 1 Gbps | Mesh (ISP backbone) | Medio           |
+| Satellite (geost.)   | 500 – 600 ms   | 20 – 100 Mbps     | Star (hub-spoke)    | Alto            |
 
 ## 🌐 Utilizzo Strumenti (AWS, Azure, GCP, ecc.)
 
