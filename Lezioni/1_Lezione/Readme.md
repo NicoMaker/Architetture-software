@@ -79,4 +79,13 @@ Un sito scalabile deve saper gestire anche **Big Data**. Alcune pratiche comuni:
 ## Scalabilità
 
 - Verticale -> aggiungi RAM, CPU, dischi
-- Orizzontale -> aggiungi server, cluster
+- Orizzontale -> aggiungi server, cluster -> gestisco in automatico e risponde con il metodo più veloce 
+
+## Resiliente
+
+Capacità di riprendersi velocemente deve essere full-tollerence disponibile anche a errori quando non va -> funziona su altro server senza bloccare appp e deve essere funzionante anche in caso di crash
+
+- Monolite -> più app -> più server -> cambio una cosa devo cambiare tutto l'app
+- Microservizi -> piu app -> meno server -> cambio una cosa devo cambiare solo quella app
+
+## Applicazione Robusta
