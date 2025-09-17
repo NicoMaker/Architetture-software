@@ -1164,7 +1164,7 @@ Considerato dall'inzio -> giù da concetto
 
 ## Zero Trust
 
-Non dare nulla per scontato -> non fidarsi da nessuno , anche se mio -> controlalre la richiesta ogni volta 
+Non dare nulla per scontato -> non fidarsi da nessuno , anche se mio -> controlalre la richiesta ogni volta -> fare richiesta ogni volta -> modifica articoli 
 
 ## 🌐 Utilizzo Strumenti (AWS, Azure, GCP, ecc.)
 
