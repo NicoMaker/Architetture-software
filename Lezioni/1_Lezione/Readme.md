@@ -343,6 +343,38 @@ I microservizi e le applicazioni web richiedono **autenticazione** per garantire
 - **Chiavette/App:** più sicura, richiede dispositivo aggiuntivo, ideale per dati sensibili.
 - **Logout:** fondamentale in entrambi i casi per proteggere la sessione.
 
+### **Sessioni e Autenticazione**
+
+1. **Stateless Authentication (Autenticazione senza stato)**
+
+   - Il server **non memorizza alcuna informazione sull'utente** tra le richieste.
+   - Ogni richiesta deve contenere **tutte le informazioni necessarie per autenticare l’utente**.
+   - Vantaggi: scalabilità più facile, meno carico sul server.
+   - Svantaggi: gestione dei token e sicurezza possono diventare più complesse.
+
+2. **JWT Token (JSON Web Token)**
+
+   - Un **token crittografato** che contiene informazioni sull’utente (payload) e una firma per verificarne l’autenticità.
+   - Utilizzato principalmente nelle **autenticazioni stateless**.
+   - Ogni richiesta invia il token, che il server verifica senza dover consultare il database delle sessioni.
+   - Esempio di uso: login -> ricevo JWT -> lo invio nell’header `Authorization: Bearer <token>` ad ogni richiesta.
+
+3. **Session Stores distribuiti**
+
+   - Quando si vuole mantenere lo stato della sessione, ma avere più server che gestiscono le richieste, si usa un **archivio esterno** (es. Redis, Memcached).
+   - Il server salva la sessione dell’utente nello store distribuito e legge da lì ogni volta che serve.
+   - Utile in ambienti scalabili e clusterizzati.
+
+4. **OAuth e SSO (Single Sign-On)**
+
+   - **OAuth**: protocollo per consentire a un’applicazione di accedere a risorse su un altro servizio senza condividere la password.
+
+     - Es: login con Google/Facebook su un sito terzo.
+
+   - **SSO**: sistema che permette di fare **login una sola volta** e accedere a più servizi senza reinserire le credenziali.
+
+     - Spesso implementato usando OAuth, SAML o OpenID Connect.
+
 ## 🌐 Utilizzo Strumenti (AWS, Azure, GCP, ecc.)
 
 Quando si usano piattaforme cloud come **Amazon Web Services (AWS)**, **Microsoft Azure** o **Google Cloud Platform (GCP)**, è fondamentale **gestire bene i costi e le risorse**.
