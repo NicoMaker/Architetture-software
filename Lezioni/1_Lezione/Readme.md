@@ -194,4 +194,39 @@ Hyber Text Transfer Protocol -> protocolo di comunicazione tra client e server p
 | **DELETE** | Elimina una risorsa                  | `/users/1`           | ✔️ (cancella)                 |
 
 
+## LoadBalancer
+
+Bilancia il carico quando i server sono troppo carichi -> con algoritmi 
+Dei loadbalancer -> misurano e gestiscono il carico.
+
+
+
+## 🔹 **Cos’è un Reverse Proxy**
+
+Un **reverse proxy** è un server che sta “in mezzo” tra i client (es. browser, app frontend) e i server backend (API, database, microservizi).
+Riceve le richieste dal client e le **inoltra al server giusto**, gestendo il traffico e spesso aggiungendo funzionalità utili.
+
+
+## 🔹 **Funzioni principali di un Reverse Proxy**
+
+* 🛠 **Integrazione frontend-backend** → permette al frontend di parlare con il backend senza problemi di porte, CORS o sicurezza.
+* 🔒 **Sicurezza** → nasconde i server backend, filtra richieste malevole, gestisce certificati HTTPS.
+* ⚡ **Load balancing** → distribuisce il carico tra più server backend per migliorare le prestazioni.
+* 📦 **Caching** → può salvare in memoria alcune risposte per rispondere più velocemente.
+* 🚪 **Single entry point** → il client fa sempre richiesta a un unico indirizzo (es. `https://api.miosito.it`) e il reverse proxy smista al backend corretto.
+
+---
+
+## 🔹 Schema semplice
+
+```
+[ Browser / Frontend ] ---> [ Reverse Proxy ] ---> [ Backend 1 ]
+                                             ---> [ Backend 2 ]
+                                             ---> [ Backend N ]
+```
+
+
+
+
+
 ## Applicazione Robusta
