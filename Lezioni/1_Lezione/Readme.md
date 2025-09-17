@@ -1162,7 +1162,9 @@ I microservizi rendono il **backend** modulare e scalabile, mentre i microfronte
 
 Considerato dall'inzio -> giù da concetto 
 
+## Zero Trust
 
+Non dare nulla per scontato -> non fidarsi da nessuno , anche se mio -> controlalre la richiesta ogni volta 
 
 ## 🌐 Utilizzo Strumenti (AWS, Azure, GCP, ecc.)
 
