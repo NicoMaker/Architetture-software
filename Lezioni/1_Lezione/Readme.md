@@ -82,12 +82,48 @@ Un sito scalabile deve saper gestire anche **Big Data**. Alcune pratiche comuni:
 Capacità di riprendersi velocemente deve essere full-tollerence disponibile anche a errori quando non va -> funziona su altro server senza bloccare appp e deve essere funzionante anche in caso di crash
 
 - Monoliti -> più app -> più server -> cambio una cosa devo cambiare tutto l'app
-- Microservizi -> piu app -> meno server -> cambio una cosa devo cambiare solo quella app
 
 - Applicazione 3 modo
 
   - Dati
   - Business
   - Presentazione
+
+## 🔹 Definizione di Microservizi
+
+I **microservizi** sono un’architettura software in cui un’applicazione non è costruita come un **monolite unico**, ma come un insieme di **piccoli servizi indipendenti**, ognuno con una funzione specifica. 
+Diversi strumenti che sono collegsti tra di loro e fanno applicativo 
+
+👉 Ogni microservizio:
+
+* è **autonomo** (può essere sviluppato, aggiornato e distribuito indipendentemente dagli altri),
+* ha il proprio **database** o la propria gestione dei dati,
+* comunica con gli altri microservizi tramite **API** (spesso REST o gRPC, a volte con sistemi di messaggistica come RabbitMQ o Kafka).
+
+
+## 🔹 Caratteristiche principali
+
+* **Indipendenza** → se devo aggiornare il sistema di pagamento, lavoro solo sul microservizio “pagamenti”, senza toccare login o catalogo prodotti.
+* **Scalabilità mirata** → posso scalare solo il microservizio che riceve più traffico (es. “ricerca”), senza sprecare risorse sugli altri.
+* **Affidabilità** → se un microservizio cade, il resto del sistema continua a funzionare.
+* **Team specializzati** → ogni team può lavorare su un microservizio diverso (es. un team su “notifiche”, un altro su “autenticazione”).
+
+## 🔹 Esempio pratico
+
+Immagina un sito di e-commerce:
+
+* **Microservizio Utenti** → gestisce registrazione/login.
+* **Microservizio Prodotti** → gestisce catalogo e magazzino.
+* **Microservizio Pagamenti** → gestisce ordini e transazioni.
+* **Microservizio Notifiche** → invia email o SMS.
+
+Se devo modificare il metodo di pagamento, cambio solo il microservizio “Pagamenti”, senza toccare gli altri.
+
+## 🔹 Vantaggi rispetto al monolite
+
+* ✅ Aggiornamenti più rapidi.
+* ✅ Scalabilità mirata.
+* ✅ Resilienza maggiore.
+* ✅ Tecnologie miste (ogni microservizio può essere scritto in un linguaggio diverso).
 
 ## Applicazione Robusta
