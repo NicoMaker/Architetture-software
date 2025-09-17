@@ -272,6 +272,9 @@ CDN -> calcoli con lapda -> più veloce a utente finale -> distribuito su tutto 
 - **Capacità di scalling** 
   → si possono aggiungere server in base alle necessità, aggiungi macchine o togli server in base alle necessità.
 
+- **Monitoraggio dati**
+  → si possono monitorare in tempo reale le risorse e le prestazioni -> e capire quanto usi e costi.
+
 
 ### **Applicazione Robusta**
 
