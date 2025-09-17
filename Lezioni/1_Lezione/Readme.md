@@ -85,7 +85,7 @@ Un sito scalabile deve saper gestire anche **Big Data**. Alcune pratiche comuni:
 
 Capacità di riprendersi velocemente deve essere full-tollerence disponibile anche a errori quando non va -> funziona su altro server senza bloccare appp e deve essere funzionante anche in caso di crash
 
-- Monolite -> più app -> più server -> cambio una cosa devo cambiare tutto l'app
+- Monoliti -> più app -> più server -> cambio una cosa devo cambiare tutto l'app
 - Microservizi -> piu app -> meno server -> cambio una cosa devo cambiare solo quella app
 
 ## Applicazione Robusta
