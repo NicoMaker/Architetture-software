@@ -41,7 +41,6 @@ In altre parole, se oggi il tuo sito gestisce 100 utenti contemporanei e domani 
    - Aggiungi più server che lavorano insieme (cluster, cloud, container).
    - Puoi gestire teoricamente utenti infiniti, distribuendo il carico.
 
----
 
 ## 🔹 Aggiornamento in tempo reale
 
@@ -374,6 +373,34 @@ I microservizi e le applicazioni web richiedono **autenticazione** per garantire
    - **SSO**: sistema che permette di fare **login una sola volta** e accedere a più servizi senza reinserire le credenziali.
 
      - Spesso implementato usando OAuth, SAML o OpenID Connect.
+
+## ✅ Pro e ❌ contro microservizi
+
+| ✅ **Pro**                                                                                         | ❌ **Contro**                                                                                 |
+| -------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| ⚡ **Scalabilità indipendente** – Ogni servizio si può scalare separatamente.                      | 🌐 **Overhead di comunicazione** – La rete può introdurre latenza e problemi di affidabilità. |
+| 🛠️ **Manutenibilità e modularità** – Codice più chiaro e facile da aggiornare.                     | 🧩 **Complessità architetturale** – Gestire tanti servizi separati è più complesso.           |
+| 🚀 **Deploy rapido e flessibile** – Aggiornamenti locali senza fermare l’intera app.               | 🧪 **Test più complessi** – L’integrazione tra servizi richiede più strumenti.                |
+| 🌈 **Tecnologie eterogenee** – Ogni microservizio può usare il linguaggio migliore per il compito. | 💾 **Gestione dati difficile** – Coordinare transazioni tra servizi è complicato.             |
+| 🛡️ **Resilienza** – Un servizio che fallisce non blocca tutto.                                     | 📊 **Monitoraggio e distribuzione** – Serve infrastruttura avanzata per gestire i servizi.    |
+| 👥 **Team autonomi** – Squadre diverse possono lavorare indipendentemente.                         | 💰 **Costi infrastrutturali maggiori** – Più servizi richiedono più risorse e server.         |
+
+Ah, perfetto! Ecco una versione **più chiara, compatta e leggibile**:
+
+### **OAuth (Open Authorization)**
+
+**Definizione:**
+OAuth è un **protocollo di autorizzazione** che permette a un’app di accedere a dati di un utente su un altro servizio **senza chiedere la password** dell’utente.
+
+**Come funziona in breve:**
+
+1. L’utente autorizza l’app a usare alcuni dati su un altro servizio (es. Google, Facebook).
+2. Il servizio fornisce un **token di accesso** all’app, con permessi limitati.
+3. L’app usa il token per accedere solo ai dati consentiti, senza mai vedere la password dell’utente.
+
+**Esempio pratico:**
+
+- “Accedi con Google” → il sito riceve un token, legge solo le informazioni consentite (es. email, nome), e tu non dai la tua password al sito.
 
 ## 🌐 Utilizzo Strumenti (AWS, Azure, GCP, ecc.)
 
