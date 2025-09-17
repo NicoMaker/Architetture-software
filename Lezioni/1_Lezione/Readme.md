@@ -139,81 +139,77 @@ Hyber Text Transfer Protocol -> protocolo di comunicazione tra client e server p
 
 ### 🔹 **GET**
 
-* **Definizione:** Recupera dati dal server (solo lettura).
-* **Path (esempio):**
+- **Definizione:** Recupera dati dal server (solo lettura).
+- **Path (esempio):**
 
-  * `GET /users` → lista di tutti gli utenti
-  * `GET /users/1` → dettaglio utente con id=1
-* **Aggiorna?** ❌ No
+  - `GET /users` → lista di tutti gli utenti
+  - `GET /users/1` → dettaglio utente con id=1
 
+- **Aggiorna?** ❌ No
 
 ### 🔹 **POST**
 
-* **Definizione:** Crea una nuova risorsa.
-* **Path (esempio):**
+- **Definizione:** Crea una nuova risorsa.
+- **Path (esempio):**
 
-  * `POST /users` → crea un nuovo utente
-* **Aggiorna?** ✔️ Sì, aggiunge
+  - `POST /users` → crea un nuovo utente
 
+- **Aggiorna?** ✔️ Sì, aggiunge
 
 ### 🔹 **PUT**
 
-* **Definizione:** Aggiorna **completamente** una risorsa (sostituisce tutti i campi).
-* **Path (esempio):**
+- **Definizione:** Aggiorna **completamente** una risorsa (sostituisce tutti i campi).
+- **Path (esempio):**
 
-  * `PUT /users/1` → aggiorna *tutti* i dati dell’utente con id=1
-* **Aggiorna?** ✔️ Sì, ma con sostituzione totale
+  - `PUT /users/1` → aggiorna _tutti_ i dati dell’utente con id=1
 
+- **Aggiorna?** ✔️ Sì, ma con sostituzione totale
 
 ### 🔹 **PATCH**
 
-* **Definizione:** Aggiorna **parzialmente** una risorsa (solo alcuni campi).
-* **Path (esempio):**
+- **Definizione:** Aggiorna **parzialmente** una risorsa (solo alcuni campi).
+- **Path (esempio):**
 
-  * `PATCH /users/1` → aggiorna *solo i campi specificati* dell’utente con id=1
-* **Aggiorna?** ✔️ Sì, ma solo parziale
+  - `PATCH /users/1` → aggiorna _solo i campi specificati_ dell’utente con id=1
 
+- **Aggiorna?** ✔️ Sì, ma solo parziale
 
 ### 🔹 **DELETE**
 
-* **Definizione:** Elimina una risorsa.
-* **Path (esempio):**
+- **Definizione:** Elimina una risorsa.
+- **Path (esempio):**
 
-  * `DELETE /users/1` → elimina l’utente con id=1
-* **Aggiorna?** ✔️ Sì, rimuove
+  - `DELETE /users/1` → elimina l’utente con id=1
 
+- **Aggiorna?** ✔️ Sì, rimuove
 
 📌 **Riassunto tabella**
 
 | Metodo     | Definizione                          | Path esempio         | Aggiorna?                     |
 | ---------- | ------------------------------------ | -------------------- | ----------------------------- |
-| **GET**    | Legge i dati (read-only)             | `/users`, `/users/1` | ❌                             |
+| **GET**    | Legge i dati (read-only)             | `/users`, `/users/1` | ❌                            |
 | **POST**   | Crea una nuova risorsa               | `/users`             | ✔️ (aggiunge)                 |
 | **PUT**    | Aggiorna **tutta** la risorsa        | `/users/1`           | ✔️ (sostituisce tutto)        |
 | **PATCH**  | Aggiorna **parzialmente** la risorsa | `/users/1`           | ✔️ (modifica campi specifici) |
 | **DELETE** | Elimina una risorsa                  | `/users/1`           | ✔️ (cancella)                 |
 
-
 ## LoadBalancer
 
-Bilancia il carico quando i server sono troppo carichi -> con algoritmi 
+Bilancia il carico quando i server sono troppo carichi -> con algoritmi
 Dei loadbalancer -> misurano e gestiscono il carico.
-
-
 
 ## 🔹 **Cos’è un Reverse Proxy**
 
 Un **reverse proxy** è un server che sta “in mezzo” tra i client (es. browser, app frontend) e i server backend (API, database, microservizi).
 Riceve le richieste dal client e le **inoltra al server giusto**, gestendo il traffico e spesso aggiungendo funzionalità utili.
 
-
 ## 🔹 **Funzioni principali di un Reverse Proxy**
 
-* 🛠 **Integrazione frontend-backend** → permette al frontend di parlare con il backend senza problemi di porte, CORS o sicurezza.
-* 🔒 **Sicurezza** → nasconde i server backend, filtra richieste malevole, gestisce certificati HTTPS.
-* ⚡ **Load balancing** → distribuisce il carico tra più server backend per migliorare le prestazioni.
-* 📦 **Caching** → può salvare in memoria alcune risposte per rispondere più velocemente.
-* 🚪 **Single entry point** → il client fa sempre richiesta a un unico indirizzo (es. `https://api.miosito.it`) e il reverse proxy smista al backend corretto.
+- 🛠 **Integrazione frontend-backend** → permette al frontend di parlare con il backend senza problemi di porte, CORS o sicurezza.
+- 🔒 **Sicurezza** → nasconde i server backend, filtra richieste malevole, gestisce certificati HTTPS.
+- ⚡ **Load balancing** → distribuisce il carico tra più server backend per migliorare le prestazioni.
+- 📦 **Caching** → può salvare in memoria alcune risposte per rispondere più velocemente.
+- 🚪 **Single entry point** → il client fa sempre richiesta a un unico indirizzo (es. `https://api.miosito.it`) e il reverse proxy smista al backend corretto.
 
 ---
 
@@ -246,10 +242,31 @@ Ecco perché:
 5. **Minificazione e concatenazione**
    Possono fornire versioni **minificate** di CSS e JS, eliminando spazi e caratteri inutili, così che il browser scarichi meno dati.
 
+CDN -> crei da server -> ma senza header e cookie -> tempo di cache alto -> peschi CDN più veloce a lui e server più veloce degli altri
 
-CDN -> crei da server -> ma senza header e cookie -> tempo di cache alto -> peschi CDN più veloce a lui e server più veloce degli altri 
+CDN -> calcoli con lapda -> più veloce a utente finale -> distribuito su tutto e fornisce header -> maantenere dati cache browser -> non scarichi ma solo dati nuovi
 
-CDN -> calcoli con lapda -> più veloce a utente finale -> distribuito su tutto e fornisce header -> maantenere dati cache browser -> non scarichi ma solo dati nuovi 
+## 📌 Perché utili i microservizi?
 
+- **Posso utilizzare il codice in più pezzi**
+  → riutilizzabilità e modularità.
+
+- **Se non funziona uno, rifai solo quello, non tutto**
+  → isolamento dei problemi, manutenzione più semplice.
+
+- **Più risorse → più tempo**
+  → ogni microservizio può essere scalato indipendentemente in base alle necessità.
+
+- **Più difficile da ristrutturare (se monolitico)**
+  → i microservizi evitano di dover riscrivere l’intera applicazione.
+
+- **Design curato in base a singoli componenti**
+  → progettazione modulare, ogni parte ha un compito chiaro.
+
+- **Scelta delle tecnologie più adatte**
+  → ogni microservizio può essere sviluppato con linguaggi diversi.
+
+- **Aggiornamenti rapidi e indipendenti**
+  → si possono fare release più veloci senza bloccare tutto.
 
 ## Applicazione Robusta
