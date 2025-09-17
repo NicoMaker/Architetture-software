@@ -277,11 +277,10 @@ CDN -> calcoli con lapda -> più veloce a utente finale -> distribuito su tutto 
 - **Monitoraggio dati**
   → si possono monitorare in tempo reale le risorse e le prestazioni -> e capire quanto usi e costi.
 
-### **Applicazione Robusta**
 
-Un’applicazione si definisce **robusta** quando è **affidabile, resistente agli errori e capace di funzionare correttamente anche in condizioni impreviste o avverse**.
+## Come comunicare con microservizi?
 
-Perfetto 💡, ti preparo una spiegazione chiara con i tuoi punti e un po’ di ordine:
+Attraverso le code -> software che gestisci eventi -> microservizio riceve messaggio in base a che opzioni serve -> microservizio invia risposta -> operazioni asincrone -> servizio non c'è e non so quando pronto messaggio che va opzioni contaria e dice quando ha mandato o fatto
 
 ## 🌐 Utilizzo Strumenti (AWS, Azure, GCP, ecc.)
 
@@ -318,3 +317,7 @@ Quando si usano piattaforme cloud come **Amazon Web Services (AWS)**, **Microsof
 - **Resilienza** → si riprende velocemente dopo un malfunzionamento o un guasto.
 - **Affidabilità** → garantisce risultati consistenti e corretti nel tempo.
 - **Sicurezza** → protegge i dati e previene comportamenti indesiderati anche in caso di input errati o attacchi.
+
+### **Applicazione Robusta**
+
+Un’applicazione si definisce **robusta** quando è **affidabile, resistente agli errori e capace di funzionare correttamente anche in condizioni impreviste o avverse**.
