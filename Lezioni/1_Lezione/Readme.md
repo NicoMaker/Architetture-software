@@ -9,3 +9,8 @@ Server -> deve accedere a un db
 con immagini -> file system 
 
 React -> solo frontend 
+
+## COme si cambia inforazione tra Backend e F<rontend
+
+Attraverso API -> legge come JSON 
+COndivido con team -> come sviluppare un software 
