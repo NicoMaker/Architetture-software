@@ -1046,6 +1046,50 @@ I **log** sono registrazioni dettagliate di eventi che avvengono nel database. S
 
 Dove possibile -> automatizzare -> sbagli tipi di errore
 
+## **Cloud in informatica**
+
+**Definizione:**
+Il **cloud computing** è un modello di erogazione di risorse informatiche (come server, storage, database, software) **via internet**, senza dover possedere fisicamente l’hardware.
+In pratica, il cloud permette di **usare servizi e applicazioni su server remoti** gestiti da un provider, pagando solo per ciò che si utilizza.
+
+**Caratteristiche principali del cloud:**
+
+1. **Accessibilità remota:** si accede da qualsiasi dispositivo connesso a Internet.
+2. **Scalabilità:** le risorse possono essere aumentate o diminuite in base alle necessità.
+3. **Elasticità:** gestione dinamica del carico di lavoro senza intervento manuale.
+4. **Pay-per-use:** pagamento solo per le risorse effettivamente utilizzate.
+5. **Gestione centralizzata:** il provider si occupa di manutenzione, aggiornamenti e sicurezza.
+
+**Modelli di cloud:**
+
+- **IaaS (Infrastructure as a Service):** server e storage virtuali (es. AWS EC2, Google Compute Engine).
+- **PaaS (Platform as a Service):** piattaforma per sviluppare applicazioni senza gestire l’infrastruttura sottostante (es. Heroku, Google App Engine).
+- **SaaS (Software as a Service):** software pronto all’uso via cloud (es. Gmail, Office 365).
+
+## **Serverless in informatica**
+
+**Definizione:**
+Il **serverless** è un modello di **computing nel cloud** dove lo sviluppatore non gestisce i server. Si scrive solo il codice e il provider cloud si occupa di eseguire le funzioni, scalare le risorse e mantenerle operative.
+
+**Caratteristiche principali:**
+
+1. **Gestione automatica dei server** da parte del provider.
+2. **Pagamento a consumo**: si paga solo per l’esecuzione delle funzioni.
+3. **Event-driven**: le funzioni vengono attivate da eventi (richieste HTTP, file caricati, messaggi in coda).
+4. **Microservizi e funzioni autonome** (es. AWS Lambda, Azure Functions, Google Cloud Functions).
+
+**Vantaggi:**
+
+- Riduce i costi operativi.
+- Facilita la scalabilità automatica.
+- Sviluppo più rapido, senza preoccuparsi dell’infrastruttura.
+
+**Svantaggi:**
+
+- Minor controllo sull’infrastruttura.
+- Possibili ritardi iniziali (“cold start”).
+- Dipendenza dal provider cloud.
+
 ## 🌐 Utilizzo Strumenti (AWS, Azure, GCP, ecc.)
 
 Quando si usano piattaforme cloud come **Amazon Web Services (AWS)**, **Microsoft Azure** o **Google Cloud Platform (GCP)**, è fondamentale **gestire bene i costi e le risorse**.
