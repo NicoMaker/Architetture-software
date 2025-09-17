@@ -1044,6 +1044,8 @@ I **log** sono registrazioni dettagliate di eventi che avvengono nel database. S
 | Frequenza     | Raccolta periodica o in tempo reale | Continuo, ogni evento                    |
 | Esempio       | Tempo medio query, CPU al 70%       | Query eseguita alle 10:05:32 da utente X |
 
+Dove possibile -> automatizzare -> sbagli tipi di errore
+
 ## 🌐 Utilizzo Strumenti (AWS, Azure, GCP, ecc.)
 
 Quando si usano piattaforme cloud come **Amazon Web Services (AWS)**, **Microsoft Azure** o **Google Cloud Platform (GCP)**, è fondamentale **gestire bene i costi e le risorse**.
