@@ -385,9 +385,8 @@ I microservizi e le applicazioni web richiedono **autenticazione** per garantire
 | 🛡️ **Resilienza** – Un servizio che fallisce non blocca tutto.                                     | 📊 **Monitoraggio e distribuzione** – Serve infrastruttura avanzata per gestire i servizi.    |
 | 👥 **Team autonomi** – Squadre diverse possono lavorare indipendentemente.                         | 💰 **Costi infrastrutturali maggiori** – Più servizi richiedono più risorse e server.         |
 
-Ah, perfetto! Ecco una versione **più chiara, compatta e leggibile**:
 
-### **OAuth (Open Authorization)**
+## **OAuth (Open Authorization)**
 
 **Definizione:**
 OAuth è un **protocollo di autorizzazione** che permette a un’app di accedere a dati di un utente su un altro servizio **senza chiedere la password** dell’utente.
