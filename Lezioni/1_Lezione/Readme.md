@@ -846,6 +846,85 @@ La **scalabilità** è la capacità di un software o sistema di **gestire un aum
 - **Ambiente di produzione = dove il software funziona realmente per gli utenti.**
 - **Scalabilità = capacità del software di crescere con il carico senza problemi.**
 
+## Gestione LOG
+
+gestione log continua mandare log -> avendo dati che controlla e sia corretto -> non sempre stesse info avendo dei dati come informazioni -> analizzando i dati su altre macchine
+
+## Processi amministrativi
+
+già integrate nella macchina in automatico
+
+## Migrazioni nel Database
+
+Il database contiene la seguente struttura per gestire utenti o elementi con badge:
+
+| Campo    | Tipo           | Descrizione                                          |
+| -------- | -------------- | ---------------------------------------------------- |
+| `id`     | Integer / UUID | Identificativo univoco del record                    |
+| `name`   | String         | Nome dell'utente o dell'elemento                     |
+| `badge`  | String         | Badge associato all'utente/elemento                  |
+| `active` | Boolean        | Flag che indica se il record è **attivo** nel server |
+
+### Descrizione del campo `active`
+
+- Il campo `active` serve a sapere se l’utente o l’elemento è **attualmente attivo nel server**.
+- Valori possibili:
+
+  - `true` → il record è attivo e funziona regolarmente nel sistema.
+  - `false` → il record non è attivo, quindi non è considerato attivo sul server.
+
+### Esempio di record
+
+```json
+{
+  "id": 1,
+  "name": "Mario Rossi",
+  "badge": "Gold",
+  "active": true
+}
+```
+
+In questo esempio, l’utente “Mario Rossi” possiede il badge “Gold” ed è **attivo** sul server.
+
+## Cosa significa “migrazione del database”
+
+Una **migrazione del database** è un insieme di istruzioni per modificare **la struttura del database** in modo controllato e tracciabile, senza perdere dati esistenti.
+
+Piccole query per modiificare il db e far modificare i dati della tabella in queel record
+
+- Serve a **creare, aggiornare o cancellare tabelle e colonne**.
+- Permette di **aggiungere o rimuovere vincoli** (chiavi primarie, univoche, relazioni).
+- Mantiene una **cronologia delle modifiche**, così da poter tornare a una versione precedente se necessario.
+
+### Esempio pratico
+
+Immagina di avere una tabella `users`:
+
+```sql
+CREATE TABLE users (
+    id INT PRIMARY KEY,
+    name VARCHAR(100)
+);
+```
+
+Poi decidi di aggiungere un badge e un flag `active`. Una migrazione potrebbe essere:
+
+```sql
+ALTER TABLE users
+ADD COLUMN badge VARCHAR(50),
+ADD COLUMN active BOOLEAN DEFAULT TRUE;
+```
+
+In un sistema con migrazioni (come **Sequelize**, **TypeORM**, **Rails ActiveRecord**) si scrive una migrazione come file separato che:
+
+1. Descrive la modifica (`up` → cosa aggiungere, `down` → come tornare indietro).
+2. Viene eseguita per aggiornare il database senza toccare i dati già presenti.
+
+💡 **In breve:**
+Una migrazione è il modo “ufficiale” per aggiornare il database in produzione senza rischiare di perdere dati, tracciando ogni cambiamento.
+
+Se vuoi, posso scriverti subito **la migrazione completa pronta per Sequelize o TypeORM** per la tua tabella `users` con `id`, `name`, `badge` e `active`. Vuoi che lo faccia?
+
 ## 🌐 Utilizzo Strumenti (AWS, Azure, GCP, ecc.)
 
 Quando si usano piattaforme cloud come **Amazon Web Services (AWS)**, **Microsoft Azure** o **Google Cloud Platform (GCP)**, è fondamentale **gestire bene i costi e le risorse**.
