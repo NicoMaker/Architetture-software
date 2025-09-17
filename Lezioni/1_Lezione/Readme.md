@@ -1197,6 +1197,14 @@ verifico tutto il sito -> in modo corretto
 
 monitoraggio pro-attico per capire se i dati sono in modo coretto e reale -> problematica di diverso livello 
 
+## Error Budget
+
+Definsico limite massimo di errore con il cliente (monitoraggio) -> su infrastruttura 
+
+## Rotation team
+
+funzionalità di monitoraggio a tutto il team
+
 ## 🌐 Utilizzo Strumenti (AWS, Azure, GCP, ecc.)
 
 Quando si usano piattaforme cloud come **Amazon Web Services (AWS)**, **Microsoft Azure** o **Google Cloud Platform (GCP)**, è fondamentale **gestire bene i costi e le risorse**.
