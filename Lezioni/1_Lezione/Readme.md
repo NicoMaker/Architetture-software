@@ -1158,6 +1158,11 @@ Ogni microfrontend può essere sviluppato e deployato separatamente, ma all’ut
 I microservizi rendono il **backend** modulare e scalabile, mentre i microfrontend rendono il **frontend** modulare e indipendente. L’idea comune è la stessa: **dividere per responsabilità e autonomia**, ma applicata a due livelli diversi.
 
 
+## Sicurezza Informatica 
+
+Considerato dall'inzio -> giù da concetto 
+
+
 
 ## 🌐 Utilizzo Strumenti (AWS, Azure, GCP, ecc.)
 
