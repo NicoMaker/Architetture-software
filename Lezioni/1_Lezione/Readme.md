@@ -94,6 +94,8 @@ Capacità di riprendersi velocemente deve essere full-tollerence disponibile anc
 I **microservizi** sono un’architettura software in cui un’applicazione non è costruita come un **monolite unico**, ma come un insieme di **piccoli servizi indipendenti**, ognuno con una funzione specifica. 
 Diversi strumenti che sono collegsti tra di loro e fanno applicativo 
 
+Sequenza di informazioni -> che ognuno ha la sua funzione specifica -> che comunicano tra di loro
+
 👉 Ogni microservizio:
 
 * è **autonomo** (può essere sviluppato, aggiornato e distribuito indipendentemente dagli altri),
