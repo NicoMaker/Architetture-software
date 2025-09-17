@@ -225,8 +225,4 @@ Riceve le richieste dal client e le **inoltra al server giusto**, gestendo il tr
                                              ---> [ Backend N ]
 ```
 
-
-
-
-
 ## Applicazione Robusta
