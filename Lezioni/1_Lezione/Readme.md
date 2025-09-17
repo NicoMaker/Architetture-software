@@ -1168,7 +1168,11 @@ Non dare nulla per scontato -> non fidarsi da nessuno , anche se mio -> controla
 
 ## Sistemi di autenticazione dati 
 
-in base a che utente è -> controlli più specifici per entrare (study) -> privileggi minimi neccesarri solo quelli che devi non tutti 
+in base a che utente è -> controlli più specifici per entrare (study) -> privileggi minimi neccesarri solo quelli che devi non tutti
+
+## Secured code 
+
+fare codice programmare in modo sicuro 
 
 ## 🌐 Utilizzo Strumenti (AWS, Azure, GCP, ecc.)
 
