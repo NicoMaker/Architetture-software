@@ -663,7 +663,6 @@ La **configurazione del software** si riferisce ai **parametri e impostazioni** 
 💡 **In sintesi:**
 La configurazione definisce **come il software deve comportarsi**, mentre il codice definisce **come il software funziona**. Separare i due permette sicurezza, flessibilità e facilità di manutenzione.
 
-
 ## ACID vs BASE
 
 I **database tradizionali** (come SQL) seguono il modello **ACID**, mentre i database distribuiti NoSQL spesso seguono il modello **BASE**.
@@ -710,6 +709,89 @@ BASE è più flessibile e scalabile, adatto ai sistemi distribuiti:
    - La consistenza è ritardata, ma si verifica **eventualmente**.
 
 **Nota:** BASE sacrifica la consistenza immediata per **alta disponibilità e scalabilità**.
+
+## 1. Configurazione del Software
+
+La **configurazione** definisce **come il software deve comportarsi** senza modificare il codice.
+
+- Parametri tipici: database, porte, percorsi file, livelli di log, API key.
+- Non va messa nel codice perché:
+
+  - **Sicurezza:** evita esposizione di dati sensibili.
+  - **Flessibilità:** cambi senza modificare il codice.
+  - **Portabilità:** lo stesso software funziona in ambienti diversi.
+
+- Può essere gestita tramite: file `.env`, `.json`, `.yaml`, variabili d’ambiente, pannelli di configurazione.
+
+## 2. Separazione
+
+La **separazione** consiste nel dividere il software in componenti distinti con responsabilità chiare:
+
+1. **Separazione codice/configurazione** → sicurezza e flessibilità.
+2. **Separazione livelli dell’applicazione** → frontend, backend, database.
+3. **Separazione moduli** → autenticazione, gestione ordini, report, ecc.
+
+**Vantaggi:** manutenzione più semplice, test mirati, riuso del codice.
+
+## 3. Robustezza
+
+La **robustezza** indica quanto il software è **resistente a errori o situazioni impreviste**:
+
+- Gestione errori (try/catch, validazioni, fallback).
+- Test (unitari, di integrazione, di carico).
+- Ridondanza e tolleranza ai guasti (backup, sistemi distribuiti).
+- Modularità e separazione aiutano a isolare problemi.
+
+## 4. Build del Software
+
+La **build** è il processo di preparazione del software per l’esecuzione:
+
+- **Compilazione** (linguaggi compilati)
+- **Bundling/minificazione** (JavaScript/CSS)
+- Inclusione delle dipendenze
+- Inserimento della configurazione corretta per l’ambiente (sviluppo/test/produzione)
+
+**Obiettivi:** consistenza, ottimizzazione, facilità di distribuzione.
+
+## 5. Release
+
+La **release** è il momento in cui il software **diventa disponibile per gli utenti o l’ambiente di produzione**:
+
+- Include la versione stabile del software dopo build e test.
+- Può essere distribuita come pacchetto, installer, container o file eseguibile.
+- Gestione versioni e changelog aiutano a tracciare modifiche e aggiornamenti.
+
+## 6. Esecuzione
+
+L’**esecuzione** è quando il software viene effettivamente avviato e utilizzato:
+
+- Il software legge la configurazione e si connette a risorse esterne (DB, API).
+- I moduli interagiscono tra loro secondo la logica implementata.
+- Robustezza e gestione errori garantiscono continuità anche in caso di problemi.
+
+## 7. Scalabilità
+
+La **scalabilità** indica quanto il software può **gestire un aumento di carico** senza degradare le prestazioni:
+
+- **Scalabilità verticale:** potenziare l’hardware (CPU, RAM, storage).
+- **Scalabilità orizzontale:** aggiungere più istanze del software (cluster, microservizi).
+- Buona separazione e modularità rendono più semplice scalare singoli componenti senza modificare l’intero sistema.
+- L’uso di configurazioni esterne e build ottimizzate facilita l’adattamento a nuove istanze o ambienti.
+
+## 🔗 Come tutto si collega
+
+1. **Separazione** → struttura chiara, manutenzione semplice.
+2. **Robustezza** → gestione errori e stabilità.
+3. **Configurazione esterna** → flessibilità e sicurezza.
+4. **Build** → software pronto e ottimizzato per un ambiente.
+5. **Release** → distribuzione agli utenti o sistemi.
+6. **Esecuzione** → software attivo e funzionante.
+7. **Scalabilità** → capacità di crescere con il carico senza problemi.
+
+💡 **In sintesi:**
+Ogni fase è collegata e costruisce un software solido, sicuro, flessibile e pronto a crescere: separazione + robustezza + configurazione → build → release → esecuzione → scalabilità.
+
+
 
 ## 🌐 Utilizzo Strumenti (AWS, Azure, GCP, ecc.)
 
