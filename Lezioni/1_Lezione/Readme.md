@@ -91,41 +91,107 @@ Capacità di riprendersi velocemente deve essere full-tollerence disponibile anc
 
 ## 🔹 Definizione di Microservizi
 
-I **microservizi** sono un’architettura software in cui un’applicazione non è costruita come un **monolite unico**, ma come un insieme di **piccoli servizi indipendenti**, ognuno con una funzione specifica. 
-Diversi strumenti che sono collegsti tra di loro e fanno applicativo 
+I **microservizi** sono un’architettura software in cui un’applicazione non è costruita come un **monolite unico**, ma come un insieme di **piccoli servizi indipendenti**, ognuno con una funzione specifica.
+Diversi strumenti che sono collegsti tra di loro e fanno applicativo
 
-Sequenza di informazioni -> che ognuno ha la sua funzione specifica -> che comunicano tra di loro -> evento scatena evento che da funzionalià -> guidato da eventi 
+Sequenza di informazioni -> che ognuno ha la sua funzione specifica -> che comunicano tra di loro -> evento scatena evento che da funzionalià -> guidato da eventi
 
 👉 Ogni microservizio:
 
-* è **autonomo** (può essere sviluppato, aggiornato e distribuito indipendentemente dagli altri),
-* ha il proprio **database** o la propria gestione dei dati,
-* comunica con gli altri microservizi tramite **API** (spesso REST o gRPC, a volte con sistemi di messaggistica come RabbitMQ o Kafka).
-
+- è **autonomo** (può essere sviluppato, aggiornato e distribuito indipendentemente dagli altri),
+- ha il proprio **database** o la propria gestione dei dati,
+- comunica con gli altri microservizi tramite **API** (spesso REST o gRPC, a volte con sistemi di messaggistica come RabbitMQ o Kafka).
 
 ## 🔹 Caratteristiche principali
 
-* **Indipendenza** → se devo aggiornare il sistema di pagamento, lavoro solo sul microservizio “pagamenti”, senza toccare login o catalogo prodotti.
-* **Scalabilità mirata** → posso scalare solo il microservizio che riceve più traffico (es. “ricerca”), senza sprecare risorse sugli altri.
-* **Affidabilità** → se un microservizio cade, il resto del sistema continua a funzionare.
-* **Team specializzati** → ogni team può lavorare su un microservizio diverso (es. un team su “notifiche”, un altro su “autenticazione”).
+- **Indipendenza** → se devo aggiornare il sistema di pagamento, lavoro solo sul microservizio “pagamenti”, senza toccare login o catalogo prodotti.
+- **Scalabilità mirata** → posso scalare solo il microservizio che riceve più traffico (es. “ricerca”), senza sprecare risorse sugli altri.
+- **Affidabilità** → se un microservizio cade, il resto del sistema continua a funzionare.
+- **Team specializzati** → ogni team può lavorare su un microservizio diverso (es. un team su “notifiche”, un altro su “autenticazione”).
 
 ## 🔹 Esempio pratico
 
 Immagina un sito di e-commerce:
 
-* **Microservizio Utenti** → gestisce registrazione/login.
-* **Microservizio Prodotti** → gestisce catalogo e magazzino.
-* **Microservizio Pagamenti** → gestisce ordini e transazioni.
-* **Microservizio Notifiche** → invia email o SMS.
+- **Microservizio Utenti** → gestisce registrazione/login.
+- **Microservizio Prodotti** → gestisce catalogo e magazzino.
+- **Microservizio Pagamenti** → gestisce ordini e transazioni.
+- **Microservizio Notifiche** → invia email o SMS.
 
 Se devo modificare il metodo di pagamento, cambio solo il microservizio “Pagamenti”, senza toccare gli altri.
 
 ## 🔹 Vantaggi rispetto al monolite
 
-* ✅ Aggiornamenti più rapidi.
-* ✅ Scalabilità mirata.
-* ✅ Resilienza maggiore.
-* ✅ Tecnologie miste (ogni microservizio può essere scritto in un linguaggio diverso).
+- ✅ Aggiornamenti più rapidi.
+- ✅ Scalabilità mirata.
+- ✅ Resilienza maggiore.
+- ✅ Tecnologie miste (ogni microservizio può essere scritto in un linguaggio diverso).
+
+## HTTP
+
+Hyber Text Transfer Protocol -> protocolo di comunicazione tra client e server per il web per tasportare pagine web e dati
+
+- Header
+  - Content-type
+  - cookie
+
+## Metodi HTTP
+
+### 🔹 **GET**
+
+* **Definizione:** Recupera dati dal server (solo lettura).
+* **Path (esempio):**
+
+  * `GET /users` → lista di tutti gli utenti
+  * `GET /users/1` → dettaglio utente con id=1
+* **Aggiorna?** ❌ No
+
+
+### 🔹 **POST**
+
+* **Definizione:** Crea una nuova risorsa.
+* **Path (esempio):**
+
+  * `POST /users` → crea un nuovo utente
+* **Aggiorna?** ✔️ Sì, aggiunge
+
+
+### 🔹 **PUT**
+
+* **Definizione:** Aggiorna **completamente** una risorsa (sostituisce tutti i campi).
+* **Path (esempio):**
+
+  * `PUT /users/1` → aggiorna *tutti* i dati dell’utente con id=1
+* **Aggiorna?** ✔️ Sì, ma con sostituzione totale
+
+
+### 🔹 **PATCH**
+
+* **Definizione:** Aggiorna **parzialmente** una risorsa (solo alcuni campi).
+* **Path (esempio):**
+
+  * `PATCH /users/1` → aggiorna *solo i campi specificati* dell’utente con id=1
+* **Aggiorna?** ✔️ Sì, ma solo parziale
+
+
+### 🔹 **DELETE**
+
+* **Definizione:** Elimina una risorsa.
+* **Path (esempio):**
+
+  * `DELETE /users/1` → elimina l’utente con id=1
+* **Aggiorna?** ✔️ Sì, rimuove
+
+
+📌 **Riassunto tabella**
+
+| Metodo     | Definizione                          | Path esempio         | Aggiorna?                     |
+| ---------- | ------------------------------------ | -------------------- | ----------------------------- |
+| **GET**    | Legge i dati (read-only)             | `/users`, `/users/1` | ❌                             |
+| **POST**   | Crea una nuova risorsa               | `/users`             | ✔️ (aggiunge)                 |
+| **PUT**    | Aggiorna **tutta** la risorsa        | `/users/1`           | ✔️ (sostituisce tutto)        |
+| **PATCH**  | Aggiorna **parzialmente** la risorsa | `/users/1`           | ✔️ (modifica campi specifici) |
+| **DELETE** | Elimina una risorsa                  | `/users/1`           | ✔️ (cancella)                 |
+
 
 ## Applicazione Robusta
