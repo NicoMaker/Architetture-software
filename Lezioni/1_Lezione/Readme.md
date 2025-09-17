@@ -1166,6 +1166,10 @@ Considerato dall'inzio -> giù da concetto
 
 Non dare nulla per scontato -> non fidarsi da nessuno , anche se mio -> controlalre la richiesta ogni volta -> fare richiesta ogni volta -> modifica articoli 
 
+## Sistemi di autenticazione dati 
+
+in base a che utente è -> controlli più specifici per entrare (study) -> privileggi minimi neccesarri solo quelli che devi non tutti 
+
 ## 🌐 Utilizzo Strumenti (AWS, Azure, GCP, ecc.)
 
 Quando si usano piattaforme cloud come **Amazon Web Services (AWS)**, **Microsoft Azure** o **Google Cloud Platform (GCP)**, è fondamentale **gestire bene i costi e le risorse**.
