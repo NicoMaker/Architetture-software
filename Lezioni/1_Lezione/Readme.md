@@ -1179,11 +1179,11 @@ fare codice programmare in modo sicuro
 
 ## Unique test
 
-verifico dati su singoli funzioni -> sapere cosa non fa e saper gestire i dati dove non vanno 
+verifico dati su singoli funzioni -> sapere cosa non fa e saper gestire i dati dove non vanno
 
 ## Integration test
 
-Tante unità e vedo se si uniscono tra di loro 
+Tante unità e vedo se si uniscono tra di loro
 
 ## Contract test
 
@@ -1191,15 +1191,15 @@ le chiamate api deve funzionare in modo corretto
 
 ## End to end test
 
-verifico tutto il sito -> in modo corretto 
+verifico tutto il sito -> in modo corretto
 
-## Valutare errore di problematiche 
+## Valutare errore di problematiche
 
-monitoraggio pro-attico per capire se i dati sono in modo coretto e reale -> problematica di diverso livello 
+monitoraggio pro-attico per capire se i dati sono in modo coretto e reale -> problematica di diverso livello
 
 ## Error Budget
 
-Definsico limite massimo di errore con il cliente (monitoraggio) -> su infrastruttura 
+Definsico limite massimo di errore con il cliente (monitoraggio) -> su infrastruttura
 
 ## Rotation team
 
@@ -1207,9 +1207,17 @@ funzionalità di monitoraggio a tutto il team
 
 ## Architettura db
 
-- condivisi 
-- ogni singolo db per ogni cosa 
-- db sincronizzato 
+- condivisi
+- ogni singolo db per ogni cosa
+- db sincronizzato
+
+## Consistancy
+
+db che convergono a una unica unità
+
+## Design API
+
+API ReST -> risorse disponibili su vari enpoint tutti i casi con risposte ecc (200 (ok) ,400 (errore), ecc ...)
 
 ## 🌐 Utilizzo Strumenti (AWS, Azure, GCP, ecc.)
 
