@@ -591,7 +591,7 @@ Un **commit** è l’operazione con cui una transazione viene confermata nel dat
 
 > In pratica, il commit è il “punto di non ritorno” della transazione.
 
-## Ritardo nel db 
+## Ritardo nel db
 
 Un **ritardo nel database** indica il tempo che un dato impiega per arrivare dal mittente al destinatario.
 
