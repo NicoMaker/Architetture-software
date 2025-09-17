@@ -272,4 +272,17 @@ CDN -> calcoli con lapda -> più veloce a utente finale -> distribuito su tutto 
 - **Capacità di scalling** 
   → si possono aggiungere server in base alle necessità, aggiungi macchine o togli server in base alle necessità.
 
-## Applicazione Robusta
+
+### **Applicazione Robusta**
+
+Un’applicazione si definisce **robusta** quando è **affidabile, resistente agli errori e capace di funzionare correttamente anche in condizioni impreviste o avverse**.
+
+
+### 🔑 Caratteristiche principali:
+
+* **Tolleranza agli errori** → non si blocca se qualcosa va storto, ma gestisce le eccezioni in modo controllato.
+* **Stabilità** → continua a funzionare anche sotto carico elevato o con risorse limitate.
+* **Resilienza** → si riprende velocemente dopo un malfunzionamento o un guasto.
+* **Affidabilità** → garantisce risultati consistenti e corretti nel tempo.
+* **Sicurezza** → protegge i dati e previene comportamenti indesiderati anche in caso di input errati o attacchi.
+
