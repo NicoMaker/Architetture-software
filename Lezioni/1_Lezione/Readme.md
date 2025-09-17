@@ -1219,6 +1219,10 @@ db che convergono a una unica unità
 
 API ReST -> risorse disponibili su vari enpoint tutti i casi con risposte ecc (200 (ok) ,400 (errore), ecc ...)
 
+## Code
+
+mandano messaggi a code e ogni servizio risponde -> autonia servizi
+
 ## 🌐 Utilizzo Strumenti (AWS, Azure, GCP, ecc.)
 
 Quando si usano piattaforme cloud come **Amazon Web Services (AWS)**, **Microsoft Azure** o **Google Cloud Platform (GCP)**, è fondamentale **gestire bene i costi e le risorse**.
