@@ -225,4 +225,29 @@ Riceve le richieste dal client e le **inoltra al server giusto**, gestendo il tr
                                              ---> [ Backend N ]
 ```
 
+## CDN
+
+I **CDN (Content Delivery Network)** hanno proprio lo scopo di trasferire **meno dati possibili** nel modo più efficiente.
+
+Ecco perché:
+
+1. **Distribuzione geografica**
+   I file statici (immagini, CSS, JS, video, ecc.) vengono copiati su più server sparsi nel mondo. L’utente scarica i contenuti dal server più vicino, riducendo tempi e quantità di trasferimento.
+
+2. **Caching**
+   Una volta scaricato un file, il browser lo conserva in cache. Se il file non cambia, non viene riscaricato, ma riutilizzato. Questo significa meno dati trasferiti ad ogni visita.
+
+3. **Compressione automatica**
+   Molti CDN applicano **gzip o Brotli** ai file testuali (HTML, CSS, JS), riducendo la dimensione dei dati trasferiti.
+
+4. **Ottimizzazione immagini e video**
+   Alcuni CDN adattano automaticamente le immagini al dispositivo (risoluzione, formato WebP/AVIF), trasferendo solo i byte realmente necessari.
+
+5. **Minificazione e concatenazione**
+   Possono fornire versioni **minificate** di CSS e JS, eliminando spazi e caratteri inutili, così che il browser scarichi meno dati.
+
+
+CDN -> crei da server -> ma senza header e cookie -> tempo di cache alto 
+
+
 ## Applicazione Robusta
