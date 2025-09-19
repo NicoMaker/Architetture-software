@@ -194,3 +194,62 @@ Integrare **monitoraggio e logging** è fondamentale in DevOps:
 - **Monitoring** → Prometheus, Grafana, Datadog, New Relic.
 - **Logging** → ELK Stack (Elasticsearch, Logstash, Kibana), Splunk.
 - **Alerting** → PagerDuty, Opsgenie, Slack integrations.
+
+## Team Topologies
+
+Le **Team Topologies** sono un modello organizzativo che aiuta a strutturare i team in base al loro scopo, riducendo complessità e dipendenze.  
+L’obiettivo principale è migliorare il flusso di lavoro, creare team autonomi e ridurre il carico cognitivo complessivo.
+
+### Stream-aligned teams
+
+**Descrizione:**  
+Sono team allineati a un **flusso di valore specifico** (ad esempio una linea di prodotto, un servizio o un processo aziendale).  
+Sono autonomi e responsabili end-to-end: dalla progettazione, allo sviluppo, al rilascio e al monitoraggio.
+
+**Caratteristiche:**
+
+- Multidisciplinari (sviluppo, test, operazioni, UX, ecc.)
+- Orientati al cliente e agli obiettivi di business
+- Minimizzano le dipendenze da altri team
+- Favoriscono il rilascio continuo e rapido
+
+### Enabling teams
+
+**Descrizione:**  
+Supportano gli altri team aiutandoli a **superare ostacoli tecnici, metodologici o organizzativi**.  
+Hanno un ruolo temporaneo: il loro compito non è sostituirsi, ma fornire competenze e conoscenze per aumentare l’autonomia degli altri team.
+
+**Caratteristiche:**
+
+- Specializzati in un’area (es. sicurezza, DevOps, pratiche agili)
+- Trasferiscono know-how e buone pratiche
+- Riducono le difficoltà che bloccano i team allineati al flusso
+- Promuovono la crescita continua
+
+### Complicated-subsystem teams
+
+**Descrizione:**  
+Si occupano di **sistemi o componenti complessi** che richiedono conoscenze molto specifiche e difficili da acquisire per tutti.  
+Permettono agli altri team di concentrarsi sulle funzionalità di business senza doversi immergere in tali complessità.
+
+**Caratteristiche:**
+
+- Hanno esperti in domini altamente tecnici (es. algoritmi di machine learning, motori di calcolo)
+- Creano e mantengono sottosistemi complessi
+- Collaborano con i team al flusso per fornire integrazione e supporto
+- Riduzione del rischio tecnico per l’organizzazione
+
+### Platform teams
+
+**Descrizione:**  
+Costruiscono e gestiscono una **piattaforma interna** che rende più semplice e veloce il lavoro degli altri team.  
+Il loro scopo è fornire strumenti, API, servizi e ambienti che consentano ai team allineati al flusso di concentrarsi sul valore per il cliente.
+
+**Caratteristiche:**
+
+- Forniscono infrastruttura e servizi condivisi (CI/CD, ambienti cloud, API comuni)
+- Riduzione del carico cognitivo per gli altri team
+- Creano esperienze self-service per velocizzare lo sviluppo
+- Consentono una maggiore autonomia e indipendenza ai team di prodotto
+
+
