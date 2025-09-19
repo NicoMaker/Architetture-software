@@ -411,8 +411,6 @@ Best practice: obiettivi chiari, rollback pronto, automazione, blast radius mini
 - Test di carico combinati con fault injection.
 - Validare circuit breakers, retries, bulkheads, timeouts.
 
----
-
 ## Game Days
 
 - Esercitazioni programmate con scenari di guasto.
