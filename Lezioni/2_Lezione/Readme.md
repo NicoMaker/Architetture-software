@@ -40,3 +40,13 @@
 - AI/ML integration
 - Quantum computing impact
 - WebAssembly adoption
+
+- **Tools del Mestiere (deployment)** 
+  - Docker e Kubernetes
+  - Terraform & Ansible
+  - Jenkins / Gitlab CI
+  - Gitlab Runner
+    - rilascio del codice e mantenibilità del codice e migloramento delle modifiche del codice e storia che torni indietro se necessario
+  - HashiCorp Vault
+
+
