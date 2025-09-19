@@ -275,9 +275,195 @@ Il loro scopo è fornire strumenti, API, servizi e ambienti che consentano ai te
 - Code comments e README
 - commenti nel codice e readme
 
-## Deployment va male 
+## Incident Management
 
-- cosa non va 
-- trovare la soluzione per il problema
-- rispondere incidente 
-  - tornare oluzione precedente oppure backup precedente
+### QUANDO LE COSE VANNO MALE
+
+Gestire gli incidenti significa avere procedure chiare, reazioni rapide e un approccio che favorisca la collaborazione e l’apprendimento.
+
+## Incident Response Procedures ("Rispondere all’incidente")
+
+- **Riconoscere l’incidente**: identificare chiaramente che c’è un problema in corso.
+- **Classificare la gravità**: valutare l’impatto su utenti, clienti, sistema e business.
+- **Comunicare subito**: avvisare il team, stakeholder e, se necessario, gli utenti.
+- **Azioni immediate**: ridurre l’impatto (rollback, switch a backup, mitigazioni temporanee).
+
+## Post-mortem Analysis ("Analizzare post-mortem")
+
+- Documentare cosa è successo.
+- Analizzare le cause (root cause analysis).
+- Evidenziare cosa ha funzionato e cosa no nella gestione.
+- Condividere i risultati con il team.
+
+---
+
+## Blameless Culture ("Cultura senza colpevoli")
+
+- Non cercare il colpevole, ma la causa.
+- Favorire un ambiente in cui si possa segnalare errori senza paura.
+- Concentrarsi sul **processo**, non sull’individuo.
+
+## Learning from Failures ("Imparare dagli errori")
+
+- Ogni incidente è un’opportunità di miglioramento.
+- Aggiornare le procedure di risposta.
+- Implementare automazioni o alert che prevengano problemi simili.
+- Fare esercitazioni periodiche.
+
+## Deployment va male 🚨
+
+### 1. Cosa non va
+
+- Identificare il problema: errori nei log, malfunzionamenti, regressioni.
+- Valutare impatto: numero di utenti coinvolti, funzioni critiche interrotte.
+
+### 2. Trovare la soluzione per il problema
+
+- Capire se il bug è temporaneo o strutturale.
+- Cercare fix veloci (hotfix) o workaround.
+- Se possibile isolare il modulo difettoso.
+
+### 3. Rispondere all’incidente
+
+- **Rollback**: tornare alla versione precedente stabile.
+- **Backup**: ripristinare lo stato precedente dai backup.
+- **Mitigazioni temporanee**: limitare la funzionalità difettosa o deviare il traffico.
+
+### 4. Post-incident
+
+- Documentare cosa è accaduto.
+- Analizzare le cause (root cause).
+- Aggiornare pipeline CI/CD per prevenire errori futuri.
+- Condividere con il team in modalità blameless.
+
+### 5. Chaos Engineering
+
+#### Generare velotumente probailità anomale
+
+- creo bug
+  - crei problemi non pertinenti cosi vedi in base a come si comporta il sistema in sviluppo
+
+Perfetto 🚀
+Ecco tutto riscritto **partendo da `##`**, così puoi usarlo direttamente come documento strutturato in Markdown:
+
+## Chaos Engineering — Introduzione
+
+Chaos Engineering è la pratica di sperimentare guasti controllati in ambienti di produzione (o simili) per validare la resilienza dei sistemi, scoprire punti deboli e migliorare la capacità di risposta agli imprevisti.
+
+## Principi chiave
+
+- Esperimenti basati su ipotesi.
+- Blast radius controllato.
+- Automazione e ripetibilità.
+- Osservabilità prima, durante e dopo.
+- Cultura blameless.
+
+## TESTING IN PRODUCTION
+
+**Perché testare in produzione**
+
+- Riproduce condizioni reali (carico, latenza, pattern d’uso).
+- Riduce errori imprevisti dopo il deploy.
+
+**Come farlo in sicurezza**
+
+1. Monitoraggio completo.
+2. Scope limitato (subset di utenti/regioni).
+3. Esperimenti graduali.
+4. Criteri di abort chiari.
+5. Post-mortem dopo ogni test.
+
+## Netflix’s Chaos Monkey
+
+- Strumento sviluppato da Netflix.
+- Spegne istanze casuali per verificare la resilienza.
+- Insegna a progettare sistemi che tollerano guasti continui.
+- Nota: “Chaos Monkey” è un marchio registrato, non si traduce.
+
+## Fault Injection
+
+Tipi comuni:
+
+- Kill process / terminare istanze.
+- Fault di rete (latenza, packet loss, partitioning).
+- Fault di risorse (CPU, memoria, disco).
+- Fault di dipendenze (timeout, errori DB, servizi esterni).
+- Fault di configurazione (parametri errati, feature flag sbagliati).
+
+Best practice: obiettivi chiari, rollback pronto, automazione, blast radius minimo.
+
+## Resilience Testing
+
+**Obiettivi**
+
+- Testare degradazione e tempi di recupero.
+
+**Metriche chiave**
+
+- Availability e uptime.
+- Latenza (p50/p95/p99).
+- Error rate.
+- SLA/SLO breaches.
+- MTTD e MTTR.
+
+**Tecniche**
+
+- Test di carico combinati con fault injection.
+- Validare circuit breakers, retries, bulkheads, timeouts.
+
+---
+
+## Game Days
+
+- Esercitazioni programmate con scenari di guasto.
+- Scopo: testare runbook, comunicazione e reazione del team.
+
+**Come organizzarli**
+
+1. Definire lo scenario.
+2. Assegnare ruoli (incident commander, scribe, recovery engineers).
+3. Eseguire con blast radius controllato.
+4. Raccogliere metriche e osservazioni.
+5. Debrief blameless e azioni correttive.
+
+## Strumenti comuni
+
+- **Chaos Engineering**: Chaos Monkey, Chaos Toolkit, Gremlin, LitmusChaos, Chaos Mesh.
+- **Observability**: Prometheus, Grafana, ELK/EFK, Jaeger, Datadog.
+- **Orchestrazione**: integrazione CI/CD (GitHub Actions, Jenkins, GitLab CI).
+
+## Piano di esperimento (template)
+
+1. Titolo.
+2. Ipotesi.
+3. Blast radius.
+4. Metriche monitorate.
+5. Precondizioni.
+6. Durata.
+7. Abort conditions.
+8. Rollback / mitigazione.
+9. Owners.
+10. Post-mortem.
+
+## Checklist prima di un esperimento
+
+- [ ] Monitoraggio attivo.
+- [ ] Runbook di rollback testato.
+- [ ] Team informato.
+- [ ] Blast radius definito.
+- [ ] Criteri di abort chiari.
+- [ ] Rollback automatizzato o manuale pronto.
+- [ ] Post-mortem pianificato.
+
+## Best Practices organizzative
+
+- Integrare Chaos Engineering nella roadmap.
+- Cultura blameless e apprendimento continuo.
+- Misurare i miglioramenti (MTTR, SLO breaches).
+- Automatizzare test a basso rischio, fare Game Days per scenari ad alto impatto.
+
+## Avvertenze e limiti
+
+- Non tutti i sistemi sono pronti al test in produzione.
+- Attenzione a compliance e dati sensibili.
+- Comunicazioni pronte per clienti/utenti se l’esperimento impatta i servizi.
