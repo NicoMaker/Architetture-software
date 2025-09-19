@@ -262,3 +262,7 @@ Il loro scopo è fornire strumenti, API, servizi e ambienti che consentano ai te
   - complessità aggiuntiva introdotta dalle scelte tecnologiche o di processo che non è necessaria per risolvere il problema di business.
 - **Team cognitive load**
   - quantità tot di info, tecnologie e responsabilità che un team può gestire efficacemente senza compromettere qualità e velocità di delivery.
+
+## Documentazione
+
+- per ogni software serve 
