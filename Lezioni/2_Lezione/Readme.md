@@ -280,4 +280,4 @@ Il loro scopo è fornire strumenti, API, servizi e ambienti che consentano ai te
 - cosa non va 
 - trovare la soluzione per il problema
 - rispondere incidente 
-  - tornare oluzione precedente
+  - tornare oluzione precedente oppure backup precedente
