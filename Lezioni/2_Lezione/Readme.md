@@ -30,4 +30,13 @@
 
 - **GDPR (General Data Protection Regulation):** conformità al regolamento europeo sulla protezione dei dati personali, che impone trasparenza, tutela dei diritti degli interessati e misure di sicurezza adeguate.
 - **SOX (Sarbanes-Oxley Act):** normativa statunitense che richiede controlli finanziari rigorosi, tracciabilità completa delle transazioni e responsabilità diretta del management sull’accuratezza e veridicità dei report finanziari.
+- **Audit trails:** Registrazione cronologica e immutabili di tutte le azioni e modifiche del sistema per garantire tracciabilità
 
+#### Future Trends
+
+- **Edge Computing**
+  - calcolo della computazione sul bordo
+  - strumento nel bordo di funzionamento
+- AI/ML integration
+- Quantum computing impact
+- WebAssembly adoption
