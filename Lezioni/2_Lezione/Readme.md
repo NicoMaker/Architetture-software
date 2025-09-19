@@ -265,4 +265,11 @@ Il loro scopo è fornire strumenti, API, servizi e ambienti che consentano ai te
 
 ## Documentazione
 
-- per ogni software serve 
+- per ogni software serve
+
+### LIVING DOCUMENTATION
+
+- Architecture Decision Records (ADRs)
+- API documentation (OpenAPI/Swagger)
+- RunBooks e playbooks
+- Code comments e README
