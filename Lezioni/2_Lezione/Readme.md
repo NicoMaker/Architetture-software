@@ -273,4 +273,11 @@ Il loro scopo è fornire strumenti, API, servizi e ambienti che consentano ai te
 - API documentation (OpenAPI/Swagger)
 - RunBooks e playbooks
 - Code comments e README
-- commenti nel codice e readme 
+- commenti nel codice e readme
+
+## Deployment va male 
+
+- cosa non va 
+- trovare la soluzione per il problema
+- rispondere incidente 
+  - tornare oluzione precedente
