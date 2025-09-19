@@ -142,3 +142,55 @@ Si basa su:
 - **Sprint Planning, Daily, Retrospective** = cerimonie chiave di Scrum.
 - **Continuous Improvement** = cuore dell’approccio Agile.
 
+## ⚙️ DevOps Integration
+
+La **DevOps Integration** rappresenta l’unione tra sviluppo (Dev) e operazioni (Ops), con l’obiettivo di:
+
+- Ridurre i tempi di rilascio del software.
+- Aumentare la qualità e l’affidabilità dei rilasci.
+- Automatizzare processi manuali e ripetitivi.
+- Favorire collaborazione continua tra sviluppatori e team operativi.
+
+È un ciclo continuo: **scrittura del codice → test → rilascio → monitoraggio → feedback**.
+
+## 🔄 CI/CD Pipelines
+
+### Continuous Integration (CI)
+
+- Ogni modifica al codice viene integrata spesso nel repository centrale.
+- La pipeline esegue automaticamente build e test.
+- Obiettivo: individuare subito bug e conflitti.
+- Strumenti tipici: GitHub Actions, Jenkins, GitLab CI, CircleCI.
+
+### Continuous Delivery / Continuous Deployment (CD)
+
+- **Continuous Delivery** → codice sempre pronto al rilascio, ma il deploy è manuale.
+- **Continuous Deployment** → deploy automatico dopo i test.
+- Obiettivo: portare rapidamente il software in produzione.
+
+## 🏗️ Infrastructure Automation
+
+Gestire server e risorse **come codice** (Infrastructure as Code, IaC).
+
+- Permette ambienti consistenti e replicabili.
+- Riduce errori manuali e aumenta la scalabilità.
+
+### Strumenti comuni:
+
+- **Terraform** → provisioning su cloud (AWS, Azure, GCP).
+- **Ansible, Puppet, Chef** → configurazione automatizzata.
+- **Docker, Kubernetes** → containerizzazione e orchestrazione.
+
+## 📊 Monitoring Integration
+
+Integrare **monitoraggio e logging** è fondamentale in DevOps:
+
+- Garantisce stabilità e performance.
+- Permette analisi in tempo reale di errori e consumi.
+- Supporta il miglioramento continuo grazie ai dati raccolti.
+
+### Strumenti comuni:
+
+- **Monitoring** → Prometheus, Grafana, Datadog, New Relic.
+- **Logging** → ELK Stack (Elasticsearch, Logstash, Kibana), Splunk.
+- **Alerting** → PagerDuty, Opsgenie, Slack integrations.
