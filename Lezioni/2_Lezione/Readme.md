@@ -252,4 +252,13 @@ Il loro scopo è fornire strumenti, API, servizi e ambienti che consentano ai te
 - Creano esperienze self-service per velocizzare lo sviluppo
 - Consentono una maggiore autonomia e indipendenza ai team di prodotto
 
+## Cognitive Loads
 
+### GESTIRE LA COMPLESSITA’
+
+- **Essential complexity**
+  - complessità intrinseca e inevitabile del problema di business che si sta risolvendo, che non può essere eliminata ma gestita.
+- **Accidental complexity**
+  - complessità aggiuntiva introdotta dalle scelte tecnologiche o di processo che non è necessaria per risolvere il problema di business.
+- **Team cognitive load**
+  - quantità tot di info, tecnologie e responsabilità che un team può gestire efficacemente senza compromettere qualità e velocità di delivery.
