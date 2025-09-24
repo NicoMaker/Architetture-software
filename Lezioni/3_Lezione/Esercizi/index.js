@@ -3,14 +3,11 @@ import express from 'express';
 const app = express();
 const PORT = 3000;
 
-// Lista prodotti fissa (puoi ampliarla)
-const prodotti = Array.from({ length: 100 }, (_, i) => ({
-  id: i + 1,
-  nome: `Prodotto ${i + 1}`,
-  prezzo: (Math.random() * 100).toFixed(2) + " €",
-  categoria: ["Elettronica", "Casa", "Giochi", "Sport", "Cibo"][i % 5],
-  disponibile: Math.random() > 0.2 // 80% di disponibilità
-}));
+app.use(express.json()); // per leggere il body in JSON
+
+// Lista prodotti (inizialmente vuota)
+let prodotti = [];
+let nextId = 1;
 
 // /ping -> pong
 app.get('/ping', (req, res) => {
@@ -39,6 +36,26 @@ app.get('/prodotto/:id', (req, res) => {
   res.json(prodotto);
 });
 
+// POST /prodotto -> aggiunge un nuovo prodotto con id generato
+app.post('/prodotto', (req, res) => {
+  const { nome, prezzo, categoria, disponibile } = req.body;
+
+  if (!nome || !prezzo || !categoria) {
+    return res.status(400).json({ error: 'Campi obbligatori: nome, prezzo, categoria' });
+  }
+
+  const nuovoProdotto = {
+    id: nextId++,
+    nome,
+    prezzo,
+    categoria,
+    disponibile: disponibile ?? true // default true se non specificato
+  };
+
+  prodotti.push(nuovoProdotto);
+  res.status(201).json(nuovoProdotto);
+});
+
 app.listen(PORT, () => {
-  console.log(`Server in ascolto su http://localhost:${PORT}`);
+  console.log(`✅ Server in ascolto su http://localhost:${PORT}`);
 });
