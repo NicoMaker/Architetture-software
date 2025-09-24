@@ -13,3 +13,10 @@
   - variazione quantità eleenti nel carello modiifci dati 
   - creazione carello vuoro e aggiunta prodotto 
 
+- Carello 
+  - aggregatori di prodotti e contenitore di elementi 
+
+
+## Ambiente di stage 
+
+dove testo e faccio analisi di sicurezza e poi mando produzione 
