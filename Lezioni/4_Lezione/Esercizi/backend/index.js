@@ -1,6 +1,7 @@
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import os from 'os';
 
 const app = express();
 const PORT = 3000;
@@ -67,4 +68,6 @@ app.post('/prodotto', (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`✅ Server in ascolto su http://localhost:${PORT}`);
+  console.log(`🔹 PID processo: ${process.pid}`);
+  console.log(`🔹 Numero di core disponibili: ${os.cpus().length}`);
 });
