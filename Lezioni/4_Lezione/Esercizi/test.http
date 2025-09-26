@@ -1,0 +1,36 @@
+### Ping
+GET http://localhost:3000/ping
+
+### Lista prodotti (inizialmente vuota)
+GET http://localhost:3000/prodotti
+
+### Aggiungi prodotto 1
+POST http://localhost:3000/prodotto
+Content-Type: application/json
+
+{
+  "nome": "Prodotto A",
+  "prezzo": "19.99 €",
+  "categoria": "Elettronica",
+  "disponibile": true
+}
+
+### Aggiungi prodotto 2
+POST http://localhost:3000/prodotto
+Content-Type: application/json
+
+{
+  "nome": "Prodotto B",
+  "prezzo": "45.00 €",
+  "categoria": "Sport"
+}
+
+### Lista aggiornata
+GET http://localhost:3000/prodotti
+
+### Prodotto con id 1
+GET http://localhost:3000/prodotto/1
+
+### Prodotto con id non valido
+GET http://localhost:3000/prodotto/2
+
