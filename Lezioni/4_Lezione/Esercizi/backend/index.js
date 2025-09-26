@@ -26,11 +26,12 @@ app.get('/prodotti/:id', (req, res) => {
 
 app.get('/heavy', (req, res) => {
   let count = 0;
-  for (let i = 0; i < 5_000_000; i++) {
+  for (let i = 0; i < 5_000_000_000; i++) {
     count += i;
   }
   res.send(`Count: ${count}`);
 });
+
 
 // avvio server 
 app.listen(port, () => {
