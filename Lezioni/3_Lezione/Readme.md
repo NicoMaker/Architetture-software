@@ -24,4 +24,4 @@ dove testo e faccio analisi di sicurezza e poi mando produzione
 
 ## Esercizi
 
-- [Esercizio 1](Esercizi)
+- [Esercizio](Esercizi)

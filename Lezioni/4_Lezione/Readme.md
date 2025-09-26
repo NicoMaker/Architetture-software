@@ -5,4 +5,4 @@
 
 ## Esercizi
 
-- [Esercizio 1](Esercizi)
+- [Esercizio](Esercizi)
