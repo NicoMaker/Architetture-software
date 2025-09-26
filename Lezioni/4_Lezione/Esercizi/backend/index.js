@@ -24,6 +24,14 @@ app.get('/prodotti/:id', (req, res) => {
     res.json({ id: 1, nome: 'Prodotto 1', prezzo: 10.0 });
 });  
 
+app.get('/heavy', (req, res) => {
+  let count = 0;
+  for (let i = 0; i < 5_000_000; i++) {
+    count += i;
+  }
+  res.send(`Count: ${count}`);
+});
+
 // avvio server 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port} - PID: ${process.pid} - CPUs: ${os.cpus().length}`);
