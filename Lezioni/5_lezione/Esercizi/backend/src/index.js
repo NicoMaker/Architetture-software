@@ -22,7 +22,7 @@ app.get('/prodotti', (req, res) => {
 
 app.get('/prodotti/:id', (req, res) => {
     res.json({ id: 1, nome: 'Prodotto 1', prezzo: 10.0 });
-});  
+});
 
 app.get('/heavy', (req, res) => {
   let count = 0;
@@ -31,7 +31,6 @@ app.get('/heavy', (req, res) => {
   }
   res.send(`Count: ${count}`);
 });
-
 
 // avvio server 
 app.listen(port, () => {
