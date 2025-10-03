@@ -4,4 +4,4 @@
 
 ## Esercizi
 
-- [Esercizio](Esercizio1.md)
+- [Esercizio](Esercizi)
