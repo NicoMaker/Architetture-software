@@ -17,6 +17,9 @@
   - rochieste
     - elaboro e faccio tutto
     - sezioni in base a cosa serve con delle tabelle e sezioni tu cosa ha fatto
+      - disaccopimento servizi e scalabilità 
+    - messaggi persistono in coda fino a quando non elaborati e volendo posso metterlo ance in coda
+    - creazione coda di errore
 
 ## Esercizi
 
