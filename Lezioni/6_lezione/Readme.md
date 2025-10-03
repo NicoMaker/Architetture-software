@@ -2,6 +2,14 @@
 
 # 6 Lezione 03 Ottobre 2025
 
+## Code
+
+- elabora richiesta
+
+  - manda risposta
+
+  - funzioni asincrone
+
 ## Esercizi
 
 - [Esercizio](Esercizi)
