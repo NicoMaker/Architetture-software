@@ -2,7 +2,6 @@
 
 # 6 Lezione 03 Ottobre 2025
 
-
 ## Esercizi
 
 - [Esercizio(Esercizio1.md)

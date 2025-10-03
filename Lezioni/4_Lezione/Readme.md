@@ -2,7 +2,6 @@
 
 # 4 Lezione 26 settembre 2025
 
-
 ## Esercizi
 
 - [Esercizio](Esercizi)
