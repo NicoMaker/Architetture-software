@@ -10,9 +10,13 @@
 
   - funzioni asincrone
 
-  - manda messaggio a coda e dopo si apetta la risposta e nel mente il programma fa altro 
+  - manda messaggio a coda e dopo si apetta la risposta e nel mente il programma fa altro
 
   - ogni pezzo si occupa della parte che serve
+
+  - rochieste
+    - elaboro e faccio tutto
+    - sezioni in base a cosa serve con delle tabelle e sezioni tu cosa ha fatto
 
 ## Esercizi
 
