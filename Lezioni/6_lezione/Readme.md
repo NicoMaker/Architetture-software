@@ -10,6 +10,10 @@
 
   - funzioni asincrone
 
+  - manda messaggio a coda e dopo si apetta la risposta e nel mente il programma fa altro 
+
+  - ogni pezzo si occupa della parte che serve
+
 ## Esercizi
 
 - [Esercizio](Esercizi)
