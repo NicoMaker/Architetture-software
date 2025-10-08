@@ -1,9 +1,13 @@
+version: "3.8"
+
 services:
   backend1:
     build: ./backend
     restart: "no"
     environment:
       - BACKEND_ID=backend-1
+    depends_on:
+      - redis
     networks:
       - app-network
 
@@ -12,6 +16,8 @@ services:
     restart: "no"
     environment:
       - BACKEND_ID=backend-2
+    depends_on:
+      - redis
     networks:
       - app-network
 
@@ -20,6 +26,8 @@ services:
     restart: "no"
     environment:
       - BACKEND_ID=backend-3
+    depends_on:
+      - redis
     networks:
       - app-network
 
@@ -88,14 +96,16 @@ services:
       - ./scripts:/scripts:ro
     entrypoint: ["/bin/bash","/scripts/init-replica.sh"]
 
-    redis:
-      image: redis:latest
-      container_name: redis
-      ports:
-        - "6379:6379"
-      volumes:
-        - ./data/redis:/data
-      restart: "unless-stopped"
+  redis:
+    image: redis:latest
+    container_name: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./data/redis:/data
+    restart: "unless-stopped"
+    networks:
+      - app-network
 
 networks:
   app-network:
