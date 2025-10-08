@@ -8,9 +8,27 @@ const id = process.env.BACKEND_ID || 'backend-unknown';
 
 // code di BullMQ tramite Redis
 const mainQueue = new Queue('main-queue', {connection: redisConnection});
+const pdfQueue = new Queue('pdf-queue', {connection: redisConnection});
+const mailQueue = new Queue('mail-queue', {connection: redisConnection});
 
 const mainWorker = new Worker(
   'main-queue', 
+  async (job) => {
+    console.log(`Start job ${job.id} on backend ${id}`)
+  }, 
+  {connection: redisConnection}
+);
+
+const pdfWorker = new Worker(
+  'pdf-queue', 
+  async (job) => {
+    console.log(`Start job ${job.id} on backend ${id}`)
+  }, 
+  {connection: redisConnection}
+);
+
+const mailWorker = new Worker(
+  'mail-queue', 
   async (job) => {
     console.log(`Start job ${job.id} on backend ${id}`)
   }, 
