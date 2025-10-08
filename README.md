@@ -10,3 +10,8 @@
 - [5 Lezione](Lezioni/5_lezione/Readme.md)
 - [6 Lezione](Lezioni/6_lezione/Readme.md)
 - [7 Lezione](Lezioni/7_Lezione/Readme.md)
+
+
+## Slide
+
+- [Slide Architteture Software](Archietture-software-slide.pdf)
