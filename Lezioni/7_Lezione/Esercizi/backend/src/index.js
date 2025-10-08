@@ -2,6 +2,7 @@ import express from 'express';
 import os from 'os';
 import {Queue, Worker} from 'bullmq';
 import redisConnection from './config/redis.js';
+import { url } from 'inspector';
 
 const port = 3000;
 const id = process.env.BACKEND_ID || 'backend-unknown';
@@ -96,6 +97,16 @@ app.post('/job-for-all', async (req, res) => {
   const job = await mainQueue.add('job', {name: req.body?.name || 'default'});
   res.json({jobId: job.id});
 });
+
+// endpoint pdf per indirizzo web
+app.post('pdf', async (req, res) => {
+  if(!req.body.url){
+    res.status(400).json({error:"manca url"});
+    return;
+  }
+  const job = new pdfQueue.add('job', {url: req.body.url});
+  res.json({jobId: job.id});
+})
 
 // avvio server 
 app.listen(port, () => {
