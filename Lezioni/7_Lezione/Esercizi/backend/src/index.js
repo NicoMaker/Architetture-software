@@ -22,7 +22,7 @@ const mainWorker = new Worker(
 const pdfWorker = new Worker(
   'pdf-queue', 
   async (job) => {
-    console.log(`Start job ${job.id} on backend ${id}`)
+    console.log(`PDF Start job ${job.id} on backend ${id}`)
   }, 
   {connection: redisConnection}
 );
@@ -30,7 +30,7 @@ const pdfWorker = new Worker(
 const mailWorker = new Worker(
   'mail-queue', 
   async (job) => {
-    console.log(`Start job ${job.id} on backend ${id}`)
+    console.log(`Mail Start job ${job.id} on backend ${id}`)
   }, 
   {connection: redisConnection}
 );
@@ -40,6 +40,21 @@ mainWorker.on('completed', (job) => {
 });
 mainWorker.on('failed', (job, err) => {
   console.log(`FAILED job ${job.id} on backend ${id} with error ${err.message}`)
+});
+
+
+pdfWorker.on('completed', (job) => {
+  console.log(`PDF COMPLETED job ${job.id} on backend ${id}`)
+});
+pdfWorker.on('failed', (job, err) => {
+  console.log(`PDF FAILED job ${job.id} on backend ${id} with error ${err.message}`)
+});
+
+mailWorker.on('completed', (job) => {
+  console.log(`Mail COMPLETED job ${job.id} on backend ${id}`)
+});
+mailWorker.on('failed', (job, err) => {
+  console.log(`Mail FAILED job ${job.id} on backend ${id} with error ${err.message}`)
 });
 
 // creo app express
