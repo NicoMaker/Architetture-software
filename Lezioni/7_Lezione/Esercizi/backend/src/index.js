@@ -66,6 +66,8 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(express.json());
+
 // creo endpoint ping
 app.get('/ping', (req, res) => {
   res.send('pong');
@@ -99,7 +101,7 @@ app.post('/job-for-all', async (req, res) => {
 });
 
 // endpoint pdf per indirizzo web
-app.post('pdf', async (req, res) => {
+app.post('/pdf', async (req, res) => {
   if(!req.body.url){
     res.status(400).json({error:"manca url"});
     return;
