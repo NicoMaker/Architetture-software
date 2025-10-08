@@ -7,7 +7,6 @@ GET http://localhost:80/ping
 POST http://localhost:80/job-for-all
 Content-Type: application/application/json
 
-
 {
     "name":"esempio di job"
 }
