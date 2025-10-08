@@ -1,35 +1,48 @@
-version: "3.8"
-
 services:
   backend1:
     build: ./backend
     restart: "no"
     environment:
       - BACKEND_ID=backend-1
-    depends_on:
-      - redis
+      - NODE_ENV=production
+      - CHROMIUM_PATH=/usr/bin/chromium
+      - PORT=8080
     networks:
       - app-network
+    depends_on:
+      - redis
+    volumes:
+      - ./data/pdf:/usr/src/app/pdf
 
   backend2:
     build: ./backend
     restart: "no"
     environment:
       - BACKEND_ID=backend-2
-    depends_on:
-      - redis
+      - NODE_ENV=production
+      - CHROMIUM_PATH=/usr/bin/chromium
+      - PORT=8080
     networks:
       - app-network
+    depends_on:
+      - redis
+    volumes:
+      - ./data/pdf:/usr/src/app/pdf
 
   backend3:
     build: ./backend
     restart: "no"
     environment:
       - BACKEND_ID=backend-3
-    depends_on:
-      - redis
+      - NODE_ENV=production
+      - CHROMIUM_PATH=/usr/bin/chromium
+      - PORT=8080
     networks:
       - app-network
+    depends_on:
+      - redis
+    volumes:
+      - ./data/pdf:/usr/src/app/pdf
 
   nginx:
     image: nginx:latest
@@ -41,7 +54,6 @@ services:
       - backend1
       - backend2
       - backend3
-      - redis
     networks:
       - app-network
 
@@ -88,7 +100,6 @@ services:
   #     - mongo-replica-1
   #     - mongo-replica-2
   #     - mongo-replica-3
-  #     - redis
   #   networks:
   #     - app-network
   #   restart: "no"
@@ -103,9 +114,26 @@ services:
       - "6379:6379"
     volumes:
       - ./data/redis:/data
-    restart: "unless-stopped"
+    networks:
+      - app-network 
+    restart: unless-stopped
+
+  mailpit:
+    image: axllent/mailpit
+    container_name: mailpit
+    restart: unless-stopped
     networks:
       - app-network
+    volumes:
+        - ./data/mailpit:/data
+    ports:
+        - 8025:8025
+        - 1025:1025
+    environment:
+        MP_MAX_MESSAGES: 5000
+        MP_DATABASE: /data/mailpit.db
+        MP_SMTP_AUTH_ACCEPT_ANY: 1
+        MP_SMTP_AUTH_ALLOW_INSECURE: 1
 
 networks:
   app-network:

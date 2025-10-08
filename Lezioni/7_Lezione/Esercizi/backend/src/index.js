@@ -2,7 +2,8 @@ import express from 'express';
 import os from 'os';
 import {Queue, Worker} from 'bullmq';
 import redisConnection from './config/redis.js';
-import { url } from 'inspector';
+import printPdf from './lib/print-pdf.js';
+import { sendEmail } from './lib/mail.js';
 
 const port = 3000;
 const id = process.env.BACKEND_ID || 'backend-unknown';
@@ -23,15 +24,25 @@ const mainWorker = new Worker(
 const pdfWorker = new Worker(
   'pdf-queue', 
   async (job) => {
-    console.log(`PDF Start job ${job.id} on backend ${id}`)
+    console.log(`Start PDF job ${job.id} on backend ${id}`)
+    const fileName = await printPdf(job.data.url);
+
+    console.log(`Enqueuing mail job from PDF job ${job.id}`);
+    await mailQueue.add('job', { fileName });
+    console.log(`Completed PDF job ${job.id} of type ${job.name}`);
   }, 
   {connection: redisConnection}
 );
-
 const mailWorker = new Worker(
   'mail-queue', 
   async (job) => {
-    console.log(`Mail Start job ${job.id} on backend ${id}`)
+    console.log(`Start MAIL job ${job.id} on backend ${id}`);
+    await sendEmail(
+      `Email from ${id}`,
+      `This is a test email sent from backend instance ${id}.`,
+      job.data.fileName
+    );
+    console.log(`Completed mail job ${job.id} of type ${job.name} - file: ${job.data.fileName}`);
   }, 
   {connection: redisConnection}
 );
@@ -43,20 +54,27 @@ mainWorker.on('failed', (job, err) => {
   console.log(`FAILED job ${job.id} on backend ${id} with error ${err.message}`)
 });
 
-
 pdfWorker.on('completed', (job) => {
-  console.log(`PDF COMPLETED job ${job.id} on backend ${id}`)
+  console.log(`COMPLETED PDF job ${job.id} on backend ${id}`)
 });
 pdfWorker.on('failed', (job, err) => {
-  console.log(`PDF FAILED job ${job.id} on backend ${id} with error ${err.message}`)
+  console.log(`FAILED PDF job ${job.id} on backend ${id} with error ${err.message}`)
 });
 
 mailWorker.on('completed', (job) => {
-  console.log(`Mail COMPLETED job ${job.id} on backend ${id}`)
+  console.log(`COMPLETED MAIL job ${job.id} on backend ${id}`)
 });
 mailWorker.on('failed', (job, err) => {
-  console.log(`Mail FAILED job ${job.id} on backend ${id} with error ${err.message}`)
+  console.log(`FAILED MAIL job ${job.id} on backend ${id} with error ${err.message}`)
 });
+
+
+
+
+
+
+
+
 
 // creo app express
 const app = express();
@@ -67,6 +85,8 @@ app.use((req, res, next) => {
 });
 
 app.use(express.json());
+
+app.use('/pdfs', express.static('pdf'));
 
 // creo endpoint ping
 app.get('/ping', (req, res) => {
@@ -100,15 +120,15 @@ app.post('/job-for-all', async (req, res) => {
   res.json({jobId: job.id});
 });
 
-// endpoint pdf per indirizzo web
 app.post('/pdf', async (req, res) => {
-  if(!req.body.url){
-    res.status(400).json({error:"manca url"});
+  if (!req.body?.url){
+    res.status(400).json({error: 'Manca url'});
     return;
   }
-  const job = new pdfQueue.add('job', {url: req.body.url});
+
+  const job = await pdfQueue.add('job', {url: req.body.url});
   res.json({jobId: job.id});
-})
+});
 
 // avvio server 
 app.listen(port, () => {
