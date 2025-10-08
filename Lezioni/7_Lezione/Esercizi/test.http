@@ -1,0 +1,4 @@
+GET http://localhost:3000/heavy
+
+### ping
+GET http://localhost:80/ping
