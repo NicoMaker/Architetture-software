@@ -1,42 +1,47 @@
 import express from "express";
 import os from "os";
-import { Queue } from "bullmq";
-import redisConnection from "./config/redis";
+import { Queue, Worker } from "bullmq";
+import redisConnection from "./config/redis.js";
 
 const port = 3000;
-const id = process.env.BACKEND_ID || "backend un-known";
+const id = process.env.BACKEND_ID || "backend-unknown";
 
-// code di BullMQ tramite Redis
-const mainQueue = new queue("main-queue", { connection: redisConnection });
-const mainworker = new worker(
+// Code di BullMQ tramite Redis
+const mainQueue = new Queue("main-queue", { connection: redisConnection });
+const mainWorker = new Worker(
   "main-worker",
   async (job) => {
-    console.log(`start job ${job.id} on backend ${id}`);
+    console.log(`Start job ${job.id} on backend ${id}`);
   },
   { connection: redisConnection }
 );
 
-mainworker.on ("completed", (job) => {
-  console.log(`job ${job.id} completed job on backend ${id}`);
+mainWorker.on("completed", (job) => {
+  console.log(`Job ${job.id} completed on backend ${id}`);
 });
 
-mainworker.on ("failed", (job, err) => {
-  console.log(`job ${job.id} failed job on backend ${id} on error ${err}`);
+mainWorker.on("failed", (job, err) => {
+  console.log(`Job ${job.id} failed on backend ${id} with error: ${err}`);
 });
 
-// creo app express
+// Creo app express
 const app = express();
 
+// Middleware per leggere il body in formato JSON
+app.use(express.json());
+
+// Middleware per header
 app.use((req, res, next) => {
   res.setHeader("X-Backend-ID", id);
   next();
 });
 
-// creo endpoint ping
+// Endpoint ping
 app.get("/ping", (req, res) => {
   res.send("pong");
 });
 
+// Endpoint prodotti
 app.get("/prodotti", (req, res) => {
   const prodotti = [
     { id: 1, nome: "Prodotto 1", prezzo: 10.0 },
@@ -47,9 +52,11 @@ app.get("/prodotti", (req, res) => {
 });
 
 app.get("/prodotti/:id", (req, res) => {
-  res.json({ id: 1, nome: "Prodotto 1", prezzo: 10.0 });
+  const id = parseInt(req.params.id, 10);
+  res.json({ id, nome: `Prodotto ${id}`, prezzo: id * 10 });
 });
 
+// Endpoint heavy
 app.get("/heavy", (req, res) => {
   let count = 0;
   for (let i = 0; i < 500_000; i++) {
@@ -58,14 +65,13 @@ app.get("/heavy", (req, res) => {
   res.send(`Count: ${count}`);
 });
 
-// endpoint per le code
-
+// Endpoint per le code
 app.post("/job-for-all", async (req, res) => {
   const job = await mainQueue.add("job", { name: req.body.name || "default" });
   res.json({ jobId: job.id });
 });
 
-// avvio server
+// Avvio server
 app.listen(port, () => {
   console.log(
     `Server is running on http://localhost:${port} - PID: ${
