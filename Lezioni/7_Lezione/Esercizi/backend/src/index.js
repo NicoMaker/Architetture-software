@@ -16,6 +16,14 @@ const mainworker = new worker(
   { connection: redisConnection }
 );
 
+mainworker.on ("completed", (job) => {
+  console.log(`job ${job.id} completed job on backend ${id}`);
+});
+
+mainworker.on ("failed", (job) => {
+  console.log(`job ${job.id} failed job on backend ${id}`);
+});
+
 // creo app express
 const app = express();
 
